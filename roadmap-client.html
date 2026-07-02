@@ -76,6 +76,7 @@
   .pd-3   { background: linear-gradient(135deg, var(--green), var(--violet)); box-shadow: 0 0 12px rgba(34,227,163,0.4); }
   .pd-4   { background: linear-gradient(135deg, var(--pink), var(--green));  box-shadow: 0 0 12px rgba(255,61,181,0.3); }
   .pd-5   { background: linear-gradient(135deg, var(--violet), var(--pink)); box-shadow: 0 0 12px rgba(139,92,255,0.4); }
+  .pd-6   { background: linear-gradient(135deg, var(--pink), var(--green));  box-shadow: 0 0 12px rgba(255,61,181,0.4); }
   .pd-fin { background: linear-gradient(135deg, var(--green), var(--violet)); box-shadow: 0 0 14px rgba(34,227,163,0.5); }
   .prog-label { font-size: 10px; color: var(--mut); text-align: center; max-width: 56px; line-height: 1.3; }
 
@@ -300,6 +301,17 @@
   .dir-plan-item { display: flex; align-items: flex-start; gap: 8px; font-size: 12px; color: rgba(255,255,255,0.6); }
   .dir-plan-item::before { content: '›'; color: var(--green); flex-shrink: 0; }
 
+  /* Reels mockup */
+  .mockup-reels { background: #0f0c1a; border: 1px solid rgba(255,255,255,0.08); border-radius: 12px; overflow: hidden; }
+  .reels-header { background: #1a1630; padding: 10px 16px; border-bottom: 1px solid rgba(255,255,255,0.06); display: flex; align-items: center; gap: 8px; font-size: 12px; color: rgba(255,255,255,0.45); }
+  .reels-header span { color: var(--pink); font-weight: 700; }
+  .reels-body { padding: 12px 16px; display: flex; flex-direction: column; gap: 8px; }
+  .reel-card { display: flex; align-items: flex-start; gap: 12px; background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.06); border-radius: 10px; padding: 10px 14px; }
+  .reel-num { font-size: 11px; font-weight: 800; color: var(--pink); background: rgba(255,61,181,0.12); border: 1px solid rgba(255,61,181,0.25); border-radius: 6px; padding: 2px 8px; flex-shrink: 0; margin-top: 2px; }
+  .reel-format { font-size: 10px; letter-spacing: .1em; text-transform: uppercase; color: var(--mut); margin-bottom: 3px; }
+  .reel-hook { font-size: 13px; color: rgba(255,255,255,0.7); line-height: 1.4; }
+  .reels-footer { padding: 10px 16px; border-top: 1px solid rgba(255,255,255,0.06); font-size: 11px; color: rgba(34,227,163,0.6); display: flex; align-items: center; gap: 6px; }
+
   /* Tech strip */
   .tech-strip {
     margin: 18px 30px 0;
@@ -361,7 +373,7 @@
   <div class="hero-wrap">
     <span class="tag">VIVI VIP · Программа включения</span>
     <h1>Дорожная карта <span class="grad">вашего цифрового офиса</span></h1>
-    <p class="lead">5 последовательных этапов — от первого знакомства до работающей системы. На каждом шаге рядом с вами будет команда VIVI — вам не нужно разбираться самостоятельно, всё делается вместе.</p>
+    <p class="lead">6 последовательных этапов — от первого знакомства до работающей системы. На каждом шаге рядом с вами будет команда VIVI — вам не нужно разбираться самостоятельно, всё делается вместе.</p>
     <div class="price-badge">Программа VIP · $1 500</div>
   </div>
 </div>
@@ -392,6 +404,10 @@
     <div class="prog-step">
       <div class="prog-dot pd-5">5</div>
       <div class="prog-label">Директор</div>
+    </div>
+    <div class="prog-step">
+      <div class="prog-dot pd-6">6</div>
+      <div class="prog-label">Рилсы</div>
     </div>
     <div class="prog-step">
       <div class="prog-dot pd-fin">✓</div>
@@ -740,13 +756,85 @@
 </div>
 
 <!-- SEP -->
+<div class="step-sep"><span class="step-sep-label">Шаг 6 — Контент-завод рилсов</span></div>
+
+<div class="steps">
+<div class="step">
+  <div class="banner">
+    <div class="banner-left">
+      <div class="num">6</div>
+      <div class="step-badge">Шаг 06 · Контент-завод рилсов</div>
+    </div>
+    <div class="step-time">~60 мин</div>
+  </div>
+  <div class="headline">Один голос → <span class="grad">поток рилсов</span></div>
+  <div class="transform">
+    <span class="t-a">Одна идея в голове</span>
+    <span class="t-arrow">→</span>
+    <span class="t-b">5–7 готовых сценариев</span>
+  </div>
+  <div class="post-desc">
+    <p>Говоришь 2 минуты голосом — рассказываешь идею, мысль, тему. Транскрибатор переводит в текст. <strong>Копирайтер пишет 5–7 сценариев рилсов</strong> в твоём голосе — с хуком, телом и призывом.</p>
+    <p>Дизайнер делает обложки в твоём фирменном стиле. Всё упаковано в один файл: сценарии + визуалы готовы к съёмке. Тебе остаётся только нажать запись.</p>
+    <p>Это и есть контент-завод. Одна голосовая сессия — и неделя рилсов готова.</p>
+  </div>
+  <div class="gets">
+    <div class="gets-title">Что ты получишь на этом шаге</div>
+    <ul class="gets-list">
+      <li>5–7 сценариев рилсов в твоём голосе за одну сессию</li>
+      <li>Обложки и графика в фирменном стиле готовы</li>
+      <li>Контент-план на неделю — остаётся только снять</li>
+    </ul>
+  </div>
+  <div class="mockup-label">Вот что вас ждёт в конце этого шага</div>
+  <div class="mockup-wrap">
+    <div class="mockup-reels">
+      <div class="reels-header">
+        📱 Контент-пак · <span>5 рилсов</span> · из 1 голосового (2 мин)
+      </div>
+      <div class="reels-body">
+        <div class="reel-card">
+          <div class="reel-num">#1</div>
+          <div>
+            <div class="reel-format">Сторителлинг · 30 сек</div>
+            <div class="reel-hook">«Год назад я тратила 3 часа на один пост. Вот что изменилось...»</div>
+          </div>
+        </div>
+        <div class="reel-card">
+          <div class="reel-num">#2</div>
+          <div>
+            <div class="reel-format">Польза · 45 сек</div>
+            <div class="reel-hook">«3 вещи, которые я делаю перед каждым рилсом — и они набирают просмотры»</div>
+          </div>
+        </div>
+        <div class="reel-card">
+          <div class="reel-num">#3</div>
+          <div>
+            <div class="reel-format">Провокация · 15 сек</div>
+            <div class="reel-hook">«Ты тратишь часы на контент? Это можно делать за 10 минут.»</div>
+          </div>
+        </div>
+      </div>
+      <div class="reels-footer">✦ + ещё 2 сценария · обложки готовы · голос твой</div>
+    </div>
+  </div>
+  <div class="tech-strip">
+    <span class="tech-pill">Копирайтер</span>
+    <span class="tech-pill">Дизайнер</span>
+    <span class="tech-pill">Транскрибатор</span>
+  </div>
+  <div class="vivi-note">👥 <span>Команда VIVI</span>&nbsp;настроит завод и проведёт первую сессию вместе — ты увидишь как из одного голосового рождается контент на неделю.</div>
+</div>
+</div>
+
+<!-- SEP -->
 <div class="step-sep"><span class="step-sep-label">Все этапы пройдены</span></div>
 
 <!-- ════ ИТОГ ════ -->
 <div class="result-block">
   <div class="result-badge">Программа завершена</div>
   <h2><span class="grad" style="background: linear-gradient(92deg, var(--green), var(--violet)); -webkit-background-clip:text; background-clip:text; color:transparent;">Цифровой офис запущен</span><br><span style="color:var(--ink)">и работает на вас.</span></h2>
-  <p class="result-lead">Пять этапов пройдено вместе с командой VIVI. Теперь система полностью ваша — работает 24/7. Если возникнут вопросы — команда VIVI всегда на связи.</p>
+  <p class="result-lead">Шесть этапов пройдено вместе с командой VIVI. Теперь система полностью ваша — работает 24/7. Если возникнут вопросы — команда VIVI всегда на связи.</p>
   <div class="res-grid">
     <div class="res-card">
       <span class="fi">💻</span>
