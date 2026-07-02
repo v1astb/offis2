@@ -26,15 +26,15 @@
     -webkit-font-smoothing: antialiased;
   }
 
-  .wrap { max-width: 1080px; margin: 0 auto; padding: 0 20px; }
+  .wrap { max-width: 820px; margin: 0 auto; padding: 0 20px; }
 
   /* ════ HERO ════ */
   .hero { padding: 56px 20px 40px; }
-  .hero-wrap { max-width: 1080px; margin: 0 auto; }
+  .hero-wrap { max-width: 820px; margin: 0 auto; }
   .tag {
     display: inline-block;
     font-size: 12px; letter-spacing: .18em; text-transform: uppercase;
-    color: var(--green); border: 1px solid var(--green);
+    color: var(--green); border: 1px solid rgba(34,227,163,0.5);
     border-radius: 999px; padding: 6px 14px; margin-bottom: 18px;
   }
   h1 {
@@ -45,7 +45,7 @@
     background: linear-gradient(92deg, var(--pink), var(--violet) 60%, var(--green));
     -webkit-background-clip: text; background-clip: text; color: transparent;
   }
-  .lead { color: var(--mut); max-width: 680px; margin-bottom: 14px; }
+  .lead { color: var(--mut); max-width: 680px; margin-bottom: 14px; line-height: 1.7; }
   .price-badge {
     display: inline-block;
     background: rgba(139,92,255,0.12);
@@ -56,43 +56,38 @@
   }
 
   /* ════ PROGRESS ════ */
-  .progress-wrap { max-width: 1080px; margin: 0 auto 36px; padding: 0 20px; }
+  .progress-wrap { max-width: 820px; margin: 0 auto 36px; padding: 0 20px; }
   .progress-track {
-    display: flex; align-items: center; justify-content: space-between;
-    position: relative;
+    display: flex; align-items: center; justify-content: space-between; position: relative;
   }
   .progress-track::before {
-    content: '';
-    position: absolute;
-    top: 17px; left: 18px; right: 18px;
-    height: 2px; background: var(--line);
+    content: ''; position: absolute;
+    top: 17px; left: 18px; right: 18px; height: 2px; background: var(--line);
   }
   .prog-step { display: flex; flex-direction: column; align-items: center; gap: 6px; z-index: 1; }
   .prog-dot {
     width: 34px; height: 34px; border-radius: 50%;
     display: flex; align-items: center; justify-content: center;
-    font-size: 13px; font-weight: 800; color: #fff;
+    font-size: 12px; font-weight: 800; color: #fff;
   }
   .pd-0   { background: linear-gradient(135deg, var(--violet), var(--pink)); box-shadow: 0 0 12px rgba(139,92,255,0.5); }
   .pd-1   { background: linear-gradient(135deg, var(--pink), var(--violet)); box-shadow: 0 0 12px rgba(255,61,181,0.4); }
   .pd-2   { background: linear-gradient(135deg, var(--violet), var(--green)); box-shadow: 0 0 12px rgba(139,92,255,0.4); }
   .pd-3   { background: linear-gradient(135deg, var(--green), var(--violet)); box-shadow: 0 0 12px rgba(34,227,163,0.4); }
   .pd-4   { background: linear-gradient(135deg, var(--pink), var(--green));  box-shadow: 0 0 12px rgba(255,61,181,0.3); }
-  .pd-5   { background: linear-gradient(135deg, var(--green), var(--pink));  box-shadow: 0 0 12px rgba(34,227,163,0.4); }
+  .pd-5   { background: linear-gradient(135deg, var(--violet), var(--pink)); box-shadow: 0 0 12px rgba(139,92,255,0.4); }
   .pd-fin { background: linear-gradient(135deg, var(--green), var(--violet)); box-shadow: 0 0 14px rgba(34,227,163,0.5); }
-  .prog-label { font-size: 10px; color: var(--mut); text-align: center; max-width: 60px; line-height: 1.3; }
+  .prog-label { font-size: 10px; color: var(--mut); text-align: center; max-width: 56px; line-height: 1.3; }
 
   /* ════ STEP SEPARATOR ════ */
   .step-sep {
-    display: flex; align-items: center; justify-content: center;
-    padding: 10px 0;
+    display: flex; align-items: center; justify-content: center; padding: 10px 0;
   }
   .step-sep-label {
     font-size: 11px; letter-spacing: .16em; text-transform: uppercase;
     background: linear-gradient(90deg, var(--pink), var(--violet), var(--green));
     -webkit-background-clip: text; background-clip: text; color: transparent;
-    opacity: 0.55;
-    font-weight: 600;
+    opacity: 0.55; font-weight: 600;
   }
 
   /* ════ INTRO ════ */
@@ -104,9 +99,7 @@
     position: relative; overflow: hidden;
   }
   .intro::before {
-    content: '';
-    position: absolute; top: 0; left: 0; right: 0;
-    height: 3px;
+    content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px;
     background: linear-gradient(90deg, var(--pink), var(--violet), var(--green));
   }
   .intro-label {
@@ -116,12 +109,7 @@
   .intro h2 { font-size: 24px; font-weight: 800; margin-bottom: 10px; line-height: 1.25; }
   .intro h2 .grad { background: linear-gradient(92deg, var(--pink), var(--violet) 60%, var(--green)); -webkit-background-clip:text; background-clip:text; color:transparent; }
   .intro-lead { color: var(--mut); font-size: 14px; margin-bottom: 22px; max-width: 640px; }
-
-  /* Before/After */
-  .ba-grid {
-    display: grid; grid-template-columns: 1fr auto 1fr; gap: 12px;
-    align-items: center; margin-bottom: 20px;
-  }
+  .ba-grid { display: grid; grid-template-columns: 1fr auto 1fr; gap: 12px; align-items: center; }
   .ba-col { border-radius: 12px; padding: 14px 16px; }
   .ba-before { background: rgba(255,61,181,0.07); border: 1px solid rgba(255,61,181,0.2); }
   .ba-after  { background: rgba(34,227,163,0.07); border: 1px solid rgba(34,227,163,0.2); }
@@ -134,153 +122,107 @@
   .ba-after  li::before { content: '✓ '; color: var(--green); }
   .ba-arrow { font-size: 22px; color: var(--line); text-align: center; }
 
-  /* ════ STEP CARD ════ */
+  /* ════ STEP CARD — НОВЫЙ ФОРМАТ ════ */
   .steps { display: flex; flex-direction: column; gap: 0; }
   .step {
     background: var(--card);
     border: 1px solid var(--line);
-    border-radius: 20px;
+    border-radius: 24px;
     overflow: hidden;
     position: relative;
   }
   .step::before {
     content: "";
-    position: absolute; left: 0; top: 0; bottom: 0;
-    width: 4px;
+    position: absolute; left: 0; top: 0; bottom: 0; width: 4px;
     background: linear-gradient(var(--pink), var(--violet));
   }
 
-  .step .hd {
-    display: flex; align-items: center; gap: 16px;
-    padding: 22px 26px 10px;
+  /* Баннер */
+  .banner {
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 24px 30px 0 30px;
   }
+  .banner-left { display: flex; align-items: center; gap: 12px; }
   .num {
-    flex: 0 0 46px; height: 46px; border-radius: 14px;
+    width: 48px; height: 48px; border-radius: 14px;
     display: grid; place-items: center;
     font-weight: 800; font-size: 20px;
     background: linear-gradient(135deg, var(--pink), var(--violet));
-    color: #fff;
+    color: #fff; flex-shrink: 0;
   }
-  .hd h2 { font-size: 20px; font-weight: 700; }
+  .step-badge {
+    font-size: 11px; letter-spacing: .18em; text-transform: uppercase;
+    font-weight: 700; color: var(--mut);
+  }
   .step-time {
-    margin-left: auto; flex-shrink: 0;
-    font-size: 11px; font-weight: 500;
-    color: rgba(255,255,255,0.25);
+    font-size: 12px; font-weight: 600; color: rgba(255,255,255,0.25);
   }
 
-  .body { padding: 6px 26px 24px; }
+  /* Заголовок */
+  .headline {
+    padding: 18px 30px 0;
+    font-size: 28px; font-weight: 800; line-height: 1.15; letter-spacing: -.02em;
+  }
+  .headline .grad {
+    background: linear-gradient(92deg, var(--pink), var(--violet));
+    -webkit-background-clip: text; background-clip: text; color: transparent;
+  }
 
-  /* value block */
-  .value-block {
-    margin: 14px 0 4px;
-    background: rgba(255,255,255,0.03);
-    border-left: 3px solid var(--violet);
-    border-radius: 0 10px 10px 0;
-    padding: 13px 16px;
+  /* А → Б */
+  .transform {
+    display: flex; align-items: center; gap: 12px;
+    padding: 12px 30px 0; font-size: 13px;
   }
-  .value-why {
-    font-size: 13px; font-weight: 400;
-    color: rgba(255,255,255,0.62);
-    line-height: 1.6; margin-bottom: 10px;
-  }
-  .value-transform {
-    display: flex; align-items: center; gap: 10px;
-    font-size: 13px;
-  }
-  .val-before { color: rgba(255,255,255,0.32); }
-  .val-arrow  { color: var(--violet); font-size: 15px; flex-shrink: 0; }
-  .val-after  { color: rgba(34,227,163,0.75); font-weight: 600; }
+  .t-a { color: rgba(255,255,255,0.35); }
+  .t-arrow { color: var(--violet); font-size: 17px; flex-shrink: 0; }
+  .t-b { color: var(--green); font-weight: 600; }
 
-  /* vivi note */
-  .vivi-note {
-    margin-top: 12px;
-    font-size: 12px; color: rgba(255,255,255,0.28);
-    display: flex; align-items: center; gap: 6px; line-height: 1.5;
+  /* Пост-описание */
+  .post-desc {
+    padding: 16px 30px 0;
+    display: flex; flex-direction: column; gap: 9px;
+    font-size: 15px; color: rgba(255,255,255,0.68); line-height: 1.65;
   }
-  .vivi-note strong { color: rgba(34,227,163,0.55); font-weight: 600; }
+  .post-desc strong { color: var(--ink); font-weight: 600; }
 
-  /* ════ RESULT ════ */
-  .result-block {
-    background: var(--card);
-    border: 1px solid rgba(34,227,163,0.3);
-    border-radius: 20px;
-    padding: 36px 30px;
-    text-align: center;
-    position: relative; overflow: hidden;
-    margin-top: 0;
+  /* Что получишь */
+  .gets {
+    margin: 20px 30px 0;
+    background: rgba(139,92,255,0.06);
+    border: 1px solid rgba(139,92,255,0.22);
+    border-radius: 14px; padding: 16px 20px;
   }
-  .result-block::before {
-    content: '';
-    position: absolute; top: 0; left: 0; right: 0;
-    height: 3px;
-    background: linear-gradient(90deg, var(--green), var(--violet), var(--pink));
+  .gets-title {
+    font-size: 11px; letter-spacing: .16em; text-transform: uppercase;
+    font-weight: 700; color: var(--violet); margin-bottom: 10px;
   }
-  .result-badge {
-    display: inline-block;
-    font-size: 11px; letter-spacing: .15em; text-transform: uppercase;
-    color: var(--green); border: 1px solid rgba(34,227,163,0.4);
-    border-radius: 999px; padding: 5px 14px; margin-bottom: 16px;
+  .gets-list { list-style: none; display: flex; flex-direction: column; gap: 7px; }
+  .gets-list li {
+    display: flex; align-items: flex-start; gap: 10px;
+    font-size: 14px; color: rgba(255,255,255,0.72);
   }
-  .result-block h2 { font-size: 28px; font-weight: 800; margin-bottom: 10px; line-height: 1.2; }
-  .result-lead { color: var(--mut); font-size: 14px; max-width: 500px; margin: 0 auto 24px; }
-  .res-grid {
-    display: grid; grid-template-columns: repeat(3, 1fr);
-    gap: 12px; margin-bottom: 24px;
+  .gets-list li::before {
+    content: '✦'; color: var(--green); font-size: 10px; margin-top: 5px; flex-shrink: 0;
   }
-  .res-card {
-    background: #100e18; border: 1px solid var(--line);
-    border-radius: 14px; padding: 18px 14px; text-align: center;
-  }
-  .res-card .fi { font-size: 26px; margin-bottom: 8px; display: block; }
-  .res-card p { font-size: 13px; color: var(--mut); line-height: 1.45; }
 
-  /* ════ VIVI SUPPORT NOTE ════ */
-  .vivi-support {
-    background: rgba(34,227,163,0.05);
-    border: 1px solid rgba(34,227,163,0.2);
-    border-radius: 12px;
-    padding: 11px 16px;
-    margin-top: 14px;
-    font-size: 13px; color: var(--mut); line-height: 1.6;
-    display: flex; align-items: center; gap: 10px;
-  }
-  .vivi-support::before {
-    content: '👥';
-    flex-shrink: 0; font-size: 16px;
-  }
-  .vivi-support strong { color: var(--green); }
-
-  /* ════ MOCKUPS ════ */
+  /* Мокап */
   .mockup-label {
     display: flex; align-items: center; gap: 8px;
-    margin-top: 18px; margin-bottom: 8px;
+    margin: 22px 30px 10px;
     font-size: 11px; letter-spacing: .14em; text-transform: uppercase;
-    font-weight: 700;
-    color: var(--violet);
+    font-weight: 700; color: var(--violet);
   }
-  .mockup-label::before {
-    content: '';
-    width: 14px; height: 1px;
-    background: var(--violet); opacity: 0.5;
-  }
-  .mockup-label::after {
-    content: '';
-    flex: 1; height: 1px;
-    background: linear-gradient(90deg, rgba(139,92,255,0.3), transparent);
-  }
-  .mockup-wrap { margin-top: 0; }
+  .mockup-label::before { content: ''; width: 14px; height: 1px; background: var(--violet); opacity: 0.5; }
+  .mockup-label::after  { content: ''; flex: 1; height: 1px; background: linear-gradient(90deg, rgba(139,92,255,0.3), transparent); }
+  .mockup-wrap { margin: 0 30px; }
 
   /* Chat / Cursor mockup */
   .mockup-window {
-    background: #0f0c1a;
-    border: 1px solid rgba(255,255,255,0.08);
-    border-radius: 12px;
-    overflow: hidden;
-    font-size: 13px;
+    background: #0f0c1a; border: 1px solid rgba(255,255,255,0.08);
+    border-radius: 12px; overflow: hidden;
   }
   .mockup-titlebar {
-    background: #1a1630;
-    padding: 8px 14px;
+    background: #1a1630; padding: 8px 14px;
     display: flex; align-items: center; gap: 8px;
     border-bottom: 1px solid rgba(255,255,255,0.06);
   }
@@ -288,66 +230,26 @@
   .m-dot.r { background: #ff5f57; }
   .m-dot.y { background: #febc2e; }
   .m-dot.g { background: #28c840; }
-  .mockup-title-text {
-    font-size: 11px; color: rgba(255,255,255,0.4);
-    margin-left: 6px; font-family: ui-monospace, monospace;
-  }
+  .mockup-title-text { font-size: 11px; color: rgba(255,255,255,0.4); margin-left: 6px; font-family: ui-monospace, monospace; }
   .mockup-chat-body { padding: 14px 16px; display: flex; flex-direction: column; gap: 10px; }
-  .chat-msg {
-    padding: 9px 13px; border-radius: 10px; max-width: 82%; font-size: 13px; line-height: 1.5;
-  }
-  .chat-msg.user {
-    background: rgba(139,92,255,0.2); border: 1px solid rgba(139,92,255,0.3);
-    color: rgba(255,255,255,0.8); align-self: flex-end; border-radius: 10px 10px 3px 10px;
-  }
-  .chat-msg.bot {
-    background: rgba(34,227,163,0.08); border: 1px solid rgba(34,227,163,0.2);
-    color: rgba(255,255,255,0.75); align-self: flex-start; border-radius: 10px 10px 10px 3px;
-  }
+  .chat-msg { padding: 9px 13px; border-radius: 10px; max-width: 82%; font-size: 13px; line-height: 1.5; }
+  .chat-msg.user { background: rgba(139,92,255,0.2); border: 1px solid rgba(139,92,255,0.3); color: rgba(255,255,255,0.8); align-self: flex-end; border-radius: 10px 10px 3px 10px; }
+  .chat-msg.bot  { background: rgba(34,227,163,0.08); border: 1px solid rgba(34,227,163,0.2); color: rgba(255,255,255,0.75); align-self: flex-start; border-radius: 10px 10px 10px 3px; }
   .chat-sender { font-size: 10px; color: var(--green); font-weight: 700; margin-bottom: 4px; letter-spacing: .06em; }
 
   /* Browser mockup */
   .mockup-browser { background: #0f0c1a; border: 1px solid rgba(255,255,255,0.08); border-radius: 12px; overflow: hidden; }
-  .browser-bar {
-    background: #1a1630; padding: 8px 14px;
-    display: flex; align-items: center; gap: 10px;
-    border-bottom: 1px solid rgba(255,255,255,0.06);
-  }
+  .browser-bar { background: #1a1630; padding: 8px 14px; display: flex; align-items: center; gap: 10px; border-bottom: 1px solid rgba(255,255,255,0.06); }
   .browser-dots { display: flex; gap: 5px; }
-  .browser-url {
-    flex: 1; background: rgba(255,255,255,0.06); border-radius: 6px;
-    padding: 4px 10px; font-size: 11px; color: rgba(255,255,255,0.35);
-    font-family: ui-monospace, monospace;
-  }
+  .browser-url { flex: 1; background: rgba(255,255,255,0.06); border-radius: 6px; padding: 4px 10px; font-size: 11px; color: rgba(255,255,255,0.35); font-family: ui-monospace, monospace; }
   .browser-body { padding: 0; overflow: hidden; }
-  .site-preview {
-    background: linear-gradient(135deg, #1a0a30 0%, #0d0a18 100%);
-    padding: 20px 22px; min-height: 90px;
-    display: flex; flex-direction: column; justify-content: center;
-  }
-  .site-logo { font-size: 18px; font-weight: 900; letter-spacing: -.02em; margin-bottom: 4px;
-    background: linear-gradient(92deg, var(--pink), var(--violet));
-    -webkit-background-clip: text; background-clip: text; color: transparent;
-  }
+  .site-preview { background: linear-gradient(135deg, #1a0a30 0%, #0d0a18 100%); padding: 20px 22px; min-height: 90px; display: flex; flex-direction: column; justify-content: center; }
+  .site-logo { font-size: 18px; font-weight: 900; letter-spacing: -.02em; margin-bottom: 4px; background: linear-gradient(92deg, var(--pink), var(--violet)); -webkit-background-clip: text; background-clip: text; color: transparent; }
   .site-tagline { font-size: 11px; color: rgba(255,255,255,0.4); margin-bottom: 10px; }
   .site-btn { display: inline-block; background: var(--pink); color: #fff; font-size: 11px; font-weight: 700; padding: 5px 14px; border-radius: 6px; }
 
-  /* Post mockup */
-  .mockup-post {
-    background: #0f0c1a; border: 1px solid rgba(255,255,255,0.08); border-radius: 12px; padding: 16px;
-  }
-  .post-header { display: flex; align-items: center; gap: 10px; margin-bottom: 10px; }
-  .post-avatar { width: 36px; height: 36px; border-radius: 50%; background: linear-gradient(135deg, var(--pink), var(--violet)); flex-shrink: 0; }
-  .post-name { font-size: 13px; font-weight: 700; color: rgba(255,255,255,0.85); }
-  .post-badge { font-size: 10px; color: var(--green); background: rgba(34,227,163,0.1); border: 1px solid rgba(34,227,163,0.25); border-radius: 4px; padding: 1px 6px; margin-top: 2px; display: inline-block; }
-  .post-text { font-size: 13px; color: rgba(255,255,255,0.65); line-height: 1.65; }
-  .post-highlight { color: rgba(255,255,255,0.85); font-weight: 600; }
-
   /* Audio → Text mockup */
-  .mockup-audio {
-    background: #0f0c1a; border: 1px solid rgba(255,255,255,0.08); border-radius: 12px; padding: 16px 20px;
-    display: flex; align-items: center; gap: 16px;
-  }
+  .mockup-audio { background: #0f0c1a; border: 1px solid rgba(255,255,255,0.08); border-radius: 12px; padding: 16px 20px; display: flex; align-items: center; gap: 16px; }
   .audio-side { display: flex; flex-direction: column; align-items: center; gap: 6px; flex-shrink: 0; }
   .audio-icon { font-size: 24px; }
   .audio-waves { display: flex; align-items: center; gap: 3px; height: 28px; }
@@ -363,35 +265,92 @@
   .audio-text-label { font-size: 10px; color: var(--green); letter-spacing: .1em; text-transform: uppercase; margin-bottom: 5px; }
   .audio-text-content { font-size: 12px; color: rgba(255,255,255,0.55); line-height: 1.6; }
 
-  /* Metodichka mockup */
-  .mockup-guide {
-    background: #0f0c1a; border: 1px solid rgba(255,255,255,0.08); border-radius: 12px; overflow: hidden;
-  }
-  .guide-header { background: linear-gradient(90deg, #1a0a30, #0d1a20); padding: 14px 18px; border-bottom: 1px solid rgba(255,255,255,0.06); }
-  .guide-title { font-size: 13px; font-weight: 800; color: rgba(255,255,255,0.85); margin-bottom: 2px; }
-  .guide-sub { font-size: 11px; color: rgba(255,255,255,0.35); }
-  .guide-body { padding: 12px 18px; }
-  .guide-block { margin-bottom: 10px; }
-  .guide-block:last-child { margin-bottom: 0; }
-  .guide-block-title { font-size: 11px; font-weight: 700; color: var(--green); margin-bottom: 4px; }
-  .guide-progress { height: 4px; background: rgba(255,255,255,0.07); border-radius: 2px; overflow: hidden; margin-bottom: 8px; }
-  .guide-progress-bar { height: 100%; background: linear-gradient(90deg, var(--pink), var(--violet)); border-radius: 2px; }
-  .guide-text { font-size: 11px; color: rgba(255,255,255,0.45); line-height: 1.6; }
-  .guide-quiz { background: rgba(139,92,255,0.08); border: 1px solid rgba(139,92,255,0.2); border-radius: 8px; padding: 8px 12px; margin-top: 8px; }
-  .guide-quiz-q { font-size: 11px; color: rgba(255,255,255,0.65); margin-bottom: 6px; }
-  .guide-quiz-opt { font-size: 11px; color: rgba(255,255,255,0.4); padding: 3px 0; display: flex; align-items: center; gap: 6px; }
-  .guide-quiz-opt::before { content: '○'; color: var(--violet); }
+  /* Notion mockup */
+  .mockup-notion { background: #0f0c1a; border: 1px solid rgba(255,255,255,0.08); border-radius: 12px; overflow: hidden; }
+  .notion-header { background: #1a1630; padding: 10px 16px; border-bottom: 1px solid rgba(255,255,255,0.06); display: flex; align-items: center; gap: 10px; }
+  .notion-logo { font-size: 14px; color: rgba(255,255,255,0.5); font-weight: 700; font-family: ui-monospace, monospace; }
+  .notion-title { font-size: 11px; color: rgba(255,255,255,0.35); }
+  .notion-body { padding: 14px 18px; display: flex; flex-direction: column; gap: 8px; }
+  .notion-row { display: flex; align-items: center; gap: 10px; padding: 7px 10px; border-radius: 8px; background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.06); }
+  .notion-tag { font-size: 10px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; padding: 2px 7px; border-radius: 4px; flex-shrink: 0; }
+  .notion-tag.content { background: rgba(255,61,181,0.15); color: var(--pink); }
+  .notion-tag.design  { background: rgba(139,92,255,0.15); color: var(--violet); }
+  .notion-tag.strategy{ background: rgba(34,227,163,0.12); color: var(--green); }
+  .notion-row-text { font-size: 12px; color: rgba(255,255,255,0.55); }
 
-  /* foot */
+  /* TG bot mockup */
+  .mockup-tg { background: #0f0c1a; border: 1px solid rgba(255,255,255,0.08); border-radius: 12px; padding: 14px 16px; display: flex; flex-direction: column; gap: 9px; }
+  .tg-header { display: flex; align-items: center; gap: 10px; padding-bottom: 10px; border-bottom: 1px solid rgba(255,255,255,0.06); }
+  .tg-avatar { width: 32px; height: 32px; border-radius: 50%; background: linear-gradient(135deg, #229ED9, #1a8bba); display: grid; place-items: center; font-size: 16px; flex-shrink: 0; }
+  .tg-name { font-size: 13px; font-weight: 700; color: rgba(255,255,255,0.85); }
+  .tg-status { font-size: 11px; color: var(--green); }
+  .tg-msg { padding: 8px 12px; border-radius: 10px; font-size: 12px; line-height: 1.5; }
+  .tg-msg.in  { background: rgba(139,92,255,0.15); border: 1px solid rgba(139,92,255,0.25); color: rgba(255,255,255,0.75); align-self: flex-end; border-radius: 10px 10px 3px 10px; align-self: flex-end; }
+  .tg-msg.out { background: rgba(34,227,163,0.07); border: 1px solid rgba(34,227,163,0.18); color: rgba(255,255,255,0.65); border-radius: 10px 10px 10px 3px; }
+
+  /* Director morning mockup */
+  .mockup-director { background: #0f0c1a; border: 1px solid rgba(255,255,255,0.08); border-radius: 12px; overflow: hidden; }
+  .dir-header { background: #1a1630; padding: 10px 16px; border-bottom: 1px solid rgba(255,255,255,0.06); display: flex; align-items: center; justify-content: space-between; }
+  .dir-name { font-size: 12px; color: rgba(255,255,255,0.5); display: flex; align-items: center; gap: 6px; }
+  .dir-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--green); animation: pulse 2s ease-in-out infinite; }
+  @keyframes pulse { 0%,100%{opacity:1} 50%{opacity:.4} }
+  .dir-time { font-size: 11px; color: rgba(255,255,255,0.2); font-family: ui-monospace, monospace; }
+  .dir-body { padding: 14px 16px; display: flex; flex-direction: column; gap: 10px; }
+  .dir-plan-title { font-size: 10px; letter-spacing: .12em; text-transform: uppercase; color: var(--violet); margin-bottom: 6px; }
+  .dir-plan-item { display: flex; align-items: flex-start; gap: 8px; font-size: 12px; color: rgba(255,255,255,0.6); }
+  .dir-plan-item::before { content: '›'; color: var(--green); flex-shrink: 0; }
+
+  /* Tech strip */
+  .tech-strip {
+    margin: 18px 30px 0;
+    padding: 14px 0;
+    border-top: 1px solid var(--line);
+    display: flex; gap: 6px; flex-wrap: wrap;
+  }
+  .tech-pill {
+    font-size: 11px; color: rgba(255,255,255,0.4);
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 999px; padding: 2px 10px;
+  }
+
+  /* VIVI note */
+  .vivi-note {
+    margin: 14px 30px 26px;
+    font-size: 12px; color: rgba(255,255,255,0.3);
+    display: flex; align-items: center; gap: 6px;
+  }
+  .vivi-note span { color: rgba(34,227,163,0.6); font-weight: 600; }
+
+  /* ════ RESULT ════ */
+  .result-block {
+    background: var(--card); border: 1px solid rgba(34,227,163,0.3);
+    border-radius: 20px; padding: 36px 30px; text-align: center;
+    position: relative; overflow: hidden;
+  }
+  .result-block::before {
+    content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px;
+    background: linear-gradient(90deg, var(--green), var(--violet), var(--pink));
+  }
+  .result-badge { display: inline-block; font-size: 11px; letter-spacing: .15em; text-transform: uppercase; color: var(--green); border: 1px solid rgba(34,227,163,0.4); border-radius: 999px; padding: 5px 14px; margin-bottom: 16px; }
+  .result-block h2 { font-size: 28px; font-weight: 800; margin-bottom: 10px; line-height: 1.2; }
+  .result-lead { color: var(--mut); font-size: 14px; max-width: 500px; margin: 0 auto 24px; }
+  .res-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin-bottom: 8px; }
+  .res-card { background: #100e18; border: 1px solid var(--line); border-radius: 14px; padding: 18px 14px; text-align: center; }
+  .res-card .fi { font-size: 26px; margin-bottom: 8px; display: block; }
+  .res-card p { font-size: 13px; color: var(--mut); line-height: 1.45; }
+
   .foot { margin-top: 40px; color: var(--mut); font-size: 13px; text-align: center; }
 
-  @media (max-width: 760px) {
-    h1 { font-size: 30px; }
-    .io, .ba-grid, .res-grid { grid-template-columns: 1fr; }
+  @media (max-width: 640px) {
+    h1 { font-size: 28px; }
+    .ba-grid { grid-template-columns: 1fr; }
     .ba-arrow { display: none; }
     .prog-label { display: none; }
-    .intro, .body, .hd { padding-left: 18px; padding-right: 18px; }
-    .result-block { padding: 26px 20px; }
+    .res-grid { grid-template-columns: 1fr; }
+    .banner, .headline, .transform, .post-desc, .mockup-label, .mockup-wrap, .tech-strip, .vivi-note, .gets { padding-left: 18px; padding-right: 18px; }
+    .banner { padding-top: 18px; }
+    .gets { margin-left: 18px; margin-right: 18px; }
+    .mockup-wrap { margin: 0 18px; }
   }
 </style>
 </head>
@@ -415,20 +374,24 @@
       <div class="prog-label">Введение</div>
     </div>
     <div class="prog-step">
-      <div class="prog-dot pd-1">I</div>
+      <div class="prog-dot pd-1">1</div>
       <div class="prog-label">Запуск</div>
     </div>
     <div class="prog-step">
-      <div class="prog-dot pd-2">II</div>
+      <div class="prog-dot pd-2">2</div>
       <div class="prog-label">Дизайн</div>
     </div>
     <div class="prog-step">
-      <div class="prog-dot pd-3">III</div>
-      <div class="prog-label">Транскриб.</div>
+      <div class="prog-dot pd-3">3</div>
+      <div class="prog-label">Голос</div>
     </div>
     <div class="prog-step">
-      <div class="prog-dot pd-4">IV</div>
-      <div class="prog-label">Бот+Метод.</div>
+      <div class="prog-dot pd-4">4</div>
+      <div class="prog-label">Notion+Бот</div>
+    </div>
+    <div class="prog-step">
+      <div class="prog-dot pd-5">5</div>
+      <div class="prog-label">Директор</div>
     </div>
     <div class="prog-step">
       <div class="prog-dot pd-fin">✓</div>
@@ -446,7 +409,6 @@
   <p class="intro-lead">
     VIVI — это ваш персональный цифровой офис с командой AI-специалистов. Дизайнер, копирайтер, маркетолог — все работают вместе под вашим руководством, без фрилансеров и ожиданий.
   </p>
-
   <div class="ba-grid">
     <div class="ba-col ba-before">
       <div class="ba-lbl">Точка А — сейчас</div>
@@ -471,195 +433,310 @@
 </div>
 
 <!-- SEP -->
-<div class="step-sep"><span class="step-sep-label">Шаг I — Запуск офиса</span></div>
+<div class="step-sep"><span class="step-sep-label">Шаг 1 — Запуск офиса</span></div>
 
 <div class="steps">
-
-<!-- ════ ШАГ I ════ -->
 <div class="step">
-  <div class="hd">
-    <div class="num">I</div>
-    <div>
-      <h2>Запуск рабочей среды</h2>
+  <div class="banner">
+    <div class="banner-left">
+      <div class="num">1</div>
+      <div class="step-badge">Шаг 01 · Запуск офиса</div>
     </div>
     <div class="step-time">~40 мин</div>
   </div>
-  <div class="body">
-    <div class="value-block">
-      <div class="value-why">После этого шага у вас появится персональный цифровой офис — инструмент, который выполняет задачи по вашей команде, 24/7, без найма сотрудников.</div>
-      <div class="value-transform">
-        <span class="val-before">Пустой ноутбук</span>
-        <span class="val-arrow">→</span>
-        <span class="val-after">Офис запущен и ответил</span>
+  <div class="headline">Открываешь свой <span class="grad">цифровой штаб</span></div>
+  <div class="transform">
+    <span class="t-a">Пустой ноутбук</span>
+    <span class="t-arrow">→</span>
+    <span class="t-b">Офис запущен и ответил</span>
+  </div>
+  <div class="post-desc">
+    <p>Через 40 минут на твоём ноутбуке живёт <strong>команда AI-специалистов</strong>. Не программа. Не приложение. Команда, которая ждёт твоей первой задачи.</p>
+    <p>Открываешь Cursor. Пишешь «Привет». Офис отвечает.</p>
+    <p>Всё, что раньше требовало найма фрилансеров, переговоров и недель ожидания — теперь укладывается в одно голосовое сообщение. Это твой персональный штаб. С этого момента ты не работаешь один.</p>
+  </div>
+  <div class="gets">
+    <div class="gets-title">Что ты получишь на этом шаге</div>
+    <ul class="gets-list">
+      <li>Рабочая среда Cursor + Claude настроена с нуля</li>
+      <li>Офис ответил на твоё первое сообщение</li>
+      <li>Ты видишь как работает система — своими глазами</li>
+    </ul>
+  </div>
+  <div class="mockup-label">Вот что вас ждёт в конце этого шага</div>
+  <div class="mockup-wrap">
+    <div class="mockup-window">
+      <div class="mockup-titlebar">
+        <div class="m-dot r"></div><div class="m-dot y"></div><div class="m-dot g"></div>
+        <span class="mockup-title-text">Cursor — VIVI Office</span>
       </div>
-    </div>
-    <div class="mockup-label">Вот что вас ждёт в конце этого шага</div>
-    <div class="mockup-wrap">
-      <div class="mockup-window">
-        <div class="mockup-titlebar">
-          <div class="m-dot r"></div><div class="m-dot y"></div><div class="m-dot g"></div>
-          <span class="mockup-title-text">Cursor — VIVI Office</span>
-        </div>
-        <div class="mockup-chat-body">
-          <div class="chat-msg user">привет</div>
-          <div class="chat-msg bot">
-            <div class="chat-sender">✦ VIVI Office</div>
-            Привет! Я ваш персональный цифровой офис. Готов помочь с контентом, дизайном, стратегией — просто скажите, что нужно сделать.
-          </div>
+      <div class="mockup-chat-body">
+        <div class="chat-msg user">Привет</div>
+        <div class="chat-msg bot">
+          <div class="chat-sender">✦ VIVI Office</div>
+          Готов к работе. Жду задачу.
         </div>
       </div>
-    </div>
-    <div class="vivi-note">👥 <strong>Команда VIVI</strong>&nbsp;поможет вам настроить всё шаг за шагом — вы будете рядом и видите как работает система изнутри.
     </div>
   </div>
+  <div class="tech-strip">
+    <span class="tech-pill">VPN</span>
+    <span class="tech-pill">Cursor</span>
+    <span class="tech-pill">Claude</span>
+    <span class="tech-pill">Репозиторий офиса</span>
+  </div>
+  <div class="vivi-note">👥 <span>Команда VIVI</span>&nbsp;поможет настроить всё шаг за шагом — вы будете рядом и увидите как работает система изнутри.</div>
 </div>
-
 </div>
 
 <!-- SEP -->
-<div class="step-sep"><span class="step-sep-label">Шаг II — Дизайн и брендинг</span></div>
+<div class="step-sep"><span class="step-sep-label">Шаг 2 — Дизайн и брендинг</span></div>
 
 <div class="steps">
-
-<!-- ════ ШАГ II ════ -->
 <div class="step">
-  <div class="hd">
-    <div class="num">II</div>
-    <div>
-      <h2>Дизайн и брендинг</h2>
+  <div class="banner">
+    <div class="banner-left">
+      <div class="num">2</div>
+      <div class="step-badge">Шаг 02 · Дизайн и брендинг</div>
     </div>
     <div class="step-time">~50 мин</div>
   </div>
-  <div class="body">
-    <div class="value-block">
-      <div class="value-why">Ваш бренд получает лицо. Офис соберёт брендбук и создаст сайт в вашем стиле — без дизайнеров-фрилансеров и недель ожидания.</div>
-      <div class="value-transform">
-        <span class="val-before">Нет фирменного стиля и сайта</span>
-        <span class="val-arrow">→</span>
-        <span class="val-after">Сайт опубликован по ссылке</span>
-      </div>
-    </div>
-    <div class="mockup-label">Вот что вас ждёт в конце этого шага</div>
-    <div class="mockup-wrap">
-      <div class="mockup-browser">
-        <div class="browser-bar">
-          <div class="browser-dots">
-            <div class="m-dot r"></div><div class="m-dot y"></div><div class="m-dot g"></div>
-          </div>
-          <div class="browser-url">yourname.vercel.app</div>
+  <div class="headline">Создаёшь лицо <span class="grad">своего бренда</span></div>
+  <div class="transform">
+    <span class="t-a">Нет фирменного стиля</span>
+    <span class="t-arrow">→</span>
+    <span class="t-b">Сайт опубликован по ссылке</span>
+  </div>
+  <div class="post-desc">
+    <p>Агент-Дизайнер задаёт вопросы по одному: про цвета, ценности, стиль, аудиторию. Ты просто отвечаешь — как в разговоре.</p>
+    <p>После последнего ответа офис собирает брендбук и создаёт твой первый сайт. <strong>Без дизайнеров-фрилансеров. Без недель ожидания.</strong></p>
+    <p>Ссылка на твой сайт появляется через 3–5 минут. Это твоё лицо в интернете.</p>
+  </div>
+  <div class="gets">
+    <div class="gets-title">Что ты получишь на этом шаге</div>
+    <ul class="gets-list">
+      <li>Брендбук с твоим фирменным стилем</li>
+      <li>Сайт опубликован на твоей ссылке</li>
+      <li>Офис знает твои цвета, шрифты и голос</li>
+    </ul>
+  </div>
+  <div class="mockup-label">Вот что вас ждёт в конце этого шага</div>
+  <div class="mockup-wrap">
+    <div class="mockup-browser">
+      <div class="browser-bar">
+        <div class="browser-dots">
+          <div class="m-dot r"></div><div class="m-dot y"></div><div class="m-dot g"></div>
         </div>
-        <div class="browser-body">
-          <div class="site-preview">
-            <div class="site-logo">ВАШЕ ИМЯ</div>
-            <div class="site-tagline">Официальный сайт · Фирменный стиль</div>
-            <div class="site-btn">Связаться →</div>
-          </div>
+        <div class="browser-url">yourname.vercel.app</div>
+      </div>
+      <div class="browser-body">
+        <div class="site-preview">
+          <div class="site-logo">ВАШЕ ИМЯ</div>
+          <div class="site-tagline">Официальный сайт · Фирменный стиль</div>
+          <div class="site-btn">Связаться →</div>
         </div>
       </div>
-    </div>
-    <div class="vivi-note">👥 <strong>Команда VIVI</strong>&nbsp;поможет вам собрать брендбук — офис задаёт вопросы, вы отвечаете, вместе получаете результат.
     </div>
   </div>
+  <div class="tech-strip">
+    <span class="tech-pill">Агент-Дизайнер</span>
+    <span class="tech-pill">Брендбук</span>
+    <span class="tech-pill">Vercel</span>
+  </div>
+  <div class="vivi-note">👥 <span>Команда VIVI</span>&nbsp;поможет собрать брендбук — офис задаёт вопросы, ты отвечаешь, результат появляется автоматически.</div>
 </div>
-
 </div>
 
 <!-- SEP -->
-<div class="step-sep"><span class="step-sep-label">Шаг III — Транскрибатор</span></div>
+<div class="step-sep"><span class="step-sep-label">Шаг 3 — Голос и методичка</span></div>
 
 <div class="steps">
-
-<!-- ════ ШАГ III ════ -->
 <div class="step">
-  <div class="hd">
-    <div class="num">III</div>
-    <div>
-      <h2>Транскрибатор</h2>
+  <div class="banner">
+    <div class="banner-left">
+      <div class="num">3</div>
+      <div class="step-badge">Шаг 03 · Голос и методичка</div>
     </div>
-    <div class="step-time">~20 мин</div>
+    <div class="step-time">~50 мин</div>
   </div>
-  <div class="body">
-    <div class="value-block">
-      <div class="value-why">Говорите голосом — получаете готовый текст за секунды. Любой эфир, голосовое, запись — превращаются в материал для работы мгновенно.</div>
-      <div class="value-transform">
-        <span class="val-before">Аудио лежит без дела</span>
-        <span class="val-arrow">→</span>
-        <span class="val-after">Готовый текст за 3 секунды</span>
+  <div class="headline">Говоришь голосом — <span class="grad">получаешь контент</span></div>
+  <div class="transform">
+    <span class="t-a">Аудио лежит без дела</span>
+    <span class="t-arrow">→</span>
+    <span class="t-b">Методичка опубликована онлайн</span>
+  </div>
+  <div class="post-desc">
+    <p>Любое аудио — голосовое, запись эфира, лекция — превращается в текст за секунды. Твой <strong>собственный бот-транскрибатор</strong> работает мгновенно.</p>
+    <p>Запись вашего эфира превращается в красивый интерактивный продукт — с тестами, прогресс-баром и вашим фирменным стилем. Готов к продаже или раздаче ученикам.</p>
+  </div>
+  <div class="gets">
+    <div class="gets-title">Что ты получишь на этом шаге</div>
+    <ul class="gets-list">
+      <li>Бот-транскрибатор подключён и работает</li>
+      <li>Интерактивная методичка из записи вашего эфира</li>
+      <li>Продукт опубликован онлайн и готов к использованию</li>
+    </ul>
+  </div>
+  <div class="mockup-label">Вот что вас ждёт в конце этого шага</div>
+  <div class="mockup-wrap">
+    <div class="mockup-audio">
+      <div class="audio-side">
+        <div class="audio-icon">🎙️</div>
+        <div class="audio-waves">
+          <span></span><span></span><span></span><span></span><span></span>
+        </div>
+      </div>
+      <div class="audio-arrow">→</div>
+      <div class="audio-text">
+        <div class="audio-text-label">Готовый текст · 3 сек</div>
+        <div class="audio-text-content">«Сегодня мы поговорим о том, как за 30 минут создать контент на неделю вперёд. Первый шаг — это определить вашу главную идею...»</div>
       </div>
     </div>
-    <div class="mockup-label">Вот что вас ждёт в конце этого шага</div>
-    <div class="mockup-wrap">
-      <div class="mockup-audio">
-        <div class="audio-side">
-          <div class="audio-icon">🎙️</div>
-          <div class="audio-waves">
-            <span></span><span></span><span></span><span></span><span></span>
-          </div>
-        </div>
-        <div class="audio-arrow">→</div>
-        <div class="audio-text">
-          <div class="audio-text-label">Готовый текст · 3 сек</div>
-          <div class="audio-text-content">«Сегодня мы поговорим о том, как за 30 минут создать контент на неделю вперёд. Первый шаг — это определить вашу главную идею...»</div>
-        </div>
-      </div>
-    </div>
-    <div class="vivi-note">👥 <strong>Команда VIVI</strong>&nbsp;поможет вам подключить транскрибатор — вы сами загружаете первое аудио и видите результат.
-    </div>
   </div>
+  <div class="tech-strip">
+    <span class="tech-pill">Бот-транскрибатор</span>
+    <span class="tech-pill">Методичка</span>
+    <span class="tech-pill">Vercel</span>
+  </div>
+  <div class="vivi-note">👥 <span>Команда VIVI</span>&nbsp;поможет подключить транскрибатор и превратить вашу запись в готовый продукт.</div>
 </div>
-
 </div>
 
 <!-- SEP -->
-<div class="step-sep"><span class="step-sep-label">Шаг IV — Собственный бот-транскрибатор + Интерактивная методичка</span></div>
+<div class="step-sep"><span class="step-sep-label">Шаг 4 — Notion офис + Бот в Telegram</span></div>
 
 <div class="steps">
-
-<!-- ════ ШАГ IV ════ -->
 <div class="step">
-  <div class="hd">
-    <div class="num">IV</div>
-    <div>
-      <h2>Собственный бот-транскрибатор + Интерактивная методичка</h2>
+  <div class="banner">
+    <div class="banner-left">
+      <div class="num">4</div>
+      <div class="step-badge">Шаг 04 · Notion офис + Бот в ТГ</div>
+    </div>
+    <div class="step-time">~40 мин</div>
+  </div>
+  <div class="headline">Твой офис <span class="grad">обретает память</span></div>
+  <div class="transform">
+    <span class="t-a">Задачи теряются в переписке</span>
+    <span class="t-arrow">→</span>
+    <span class="t-b">Всё структурировано автоматически</span>
+  </div>
+  <div class="post-desc">
+    <p>Notion становится визуализацией твоего мозга. Всё что у тебя в голове — задачи, идеи, запросы — теперь видно и структурировано в одном месте.</p>
+    <p>Пишешь боту в Telegram голосом или текстом — задача автоматически попадает в нужную категорию. <strong>Ничего не теряется. Всё на виду.</strong></p>
+    <p>Больше не нужно держать задачи в голове или вести таблицы вручную.</p>
+  </div>
+  <div class="gets">
+    <div class="gets-title">Что ты получишь на этом шаге</div>
+    <ul class="gets-list">
+      <li>Notion подключён как визуализация твоего мозга</li>
+      <li>Бот в Telegram принимает задачи голосом и текстом</li>
+      <li>Задачи автоматически классифицируются и сохраняются</li>
+    </ul>
+  </div>
+  <div class="mockup-label">Вот что вас ждёт в конце этого шага</div>
+  <div class="mockup-wrap">
+    <div style="display:flex; flex-direction:column; gap:10px;">
+      <div class="mockup-tg">
+        <div class="tg-header">
+          <div class="tg-avatar">🤖</div>
+          <div>
+            <div class="tg-name">VIVI Office Bot</div>
+            <div class="tg-status">● онлайн</div>
+          </div>
+        </div>
+        <div class="tg-msg in">Нужно сделать пост про запуск нового курса</div>
+        <div class="tg-msg out">✅ Принято. Задача добавлена в Notion → раздел «Контент». Приоритет: средний. Назначено: Копирайтер.</div>
+      </div>
+      <div class="mockup-notion">
+        <div class="notion-header">
+          <span class="notion-logo">N</span>
+          <span class="notion-title">VIVI Office · Задачи</span>
+        </div>
+        <div class="notion-body">
+          <div class="notion-row">
+            <span class="notion-tag content">Контент</span>
+            <span class="notion-row-text">Пост про запуск курса</span>
+          </div>
+          <div class="notion-row">
+            <span class="notion-tag design">Дизайн</span>
+            <span class="notion-row-text">Обложка для Instagram</span>
+          </div>
+          <div class="notion-row">
+            <span class="notion-tag strategy">Стратегия</span>
+            <span class="notion-row-text">План на следующую неделю</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="tech-strip">
+    <span class="tech-pill">Notion</span>
+    <span class="tech-pill">Telegram Bot</span>
+    <span class="tech-pill">Автоматизация</span>
+  </div>
+  <div class="vivi-note">👥 <span>Команда VIVI</span>&nbsp;подключит Notion и настроит бота — тебе останется только отправить первую задачу.</div>
+</div>
+</div>
+
+<!-- SEP -->
+<div class="step-sep"><span class="step-sep-label">Шаг 5 — Директор</span></div>
+
+<div class="steps">
+<div class="step">
+  <div class="banner">
+    <div class="banner-left">
+      <div class="num">5</div>
+      <div class="step-badge">Шаг 05 · Директор</div>
     </div>
     <div class="step-time">~30 мин</div>
   </div>
-  <div class="body">
-    <div class="value-block">
-      <div class="value-why">Запись вашего эфира превращается в красивый интерактивный продукт — с тестами, прогресс-баром и вашим фирменным стилем. Готов к продаже или раздаче ученикам.</div>
-      <div class="value-transform">
-        <span class="val-before">Запись эфира лежит без дела</span>
-        <span class="val-arrow">→</span>
-        <span class="val-after">Методичка опубликована онлайн</span>
+  <div class="headline">Начинаешь день <span class="grad">как CEO</span></div>
+  <div class="transform">
+    <span class="t-a">Хаос задач с утра</span>
+    <span class="t-arrow">→</span>
+    <span class="t-b">Чёткий план дня за 5 минут</span>
+  </div>
+  <div class="post-desc">
+    <p>Каждое утро Директор встречает тебя вопросом: «Что важно сегодня?» Отвечаешь голосом — получаешь приоритеты, расписание, конкретные шаги.</p>
+    <p>Больше не нужно думать с чего начать. <strong>Офис уже знает твои задачи</strong> из Notion и составляет план под твои цели.</p>
+    <p>Утренняя сессия занимает 5 минут. Остаток дня ты движешься по плану, а не реагируешь на хаос.</p>
+  </div>
+  <div class="gets">
+    <div class="gets-title">Что ты получишь на этом шаге</div>
+    <ul class="gets-list">
+      <li>Утренний ритуал с Директором настроен</li>
+      <li>Директор знает твои задачи и цели</li>
+      <li>Каждый день начинается с чёткого плана</li>
+    </ul>
+  </div>
+  <div class="mockup-label">Вот что вас ждёт в конце этого шага</div>
+  <div class="mockup-wrap">
+    <div class="mockup-director">
+      <div class="dir-header">
+        <div class="dir-name"><div class="dir-dot"></div>Директор · Утренняя сессия</div>
+        <div class="dir-time">09:00</div>
       </div>
-    </div>
-    <div class="mockup-label">Вот что вас ждёт в конце этого шага</div>
-    <div class="mockup-wrap">
-      <div class="mockup-guide">
-        <div class="guide-header">
-          <div class="guide-title">Методичка: Как запустить первый курс</div>
-          <div class="guide-sub">В вашем голосе · Фирменный стиль · Опубликована онлайн</div>
+      <div class="dir-body">
+        <div class="chat-msg bot" style="max-width:100%;align-self:auto;">
+          <div class="chat-sender">✦ Директор</div>
+          Доброе утро. Вижу 4 задачи на сегодня. Вот твой план:
         </div>
-        <div class="guide-body">
-          <div class="guide-progress"><div class="guide-progress-bar" style="width:35%"></div></div>
-          <div class="guide-block">
-            <div class="guide-block-title">Модуль 2 · Структура продукта</div>
-            <div class="guide-text">Прежде чем начинать — определи главный результат для ученика. Не «что ты расскажешь», а «что изменится в его жизни»...</div>
-          </div>
-          <div class="guide-quiz">
-            <div class="guide-quiz-q">Проверь себя: какой главный вопрос нужно задать перед созданием курса?</div>
-            <div class="guide-quiz-opt">Сколько это стоит?</div>
-            <div class="guide-quiz-opt" style="color:rgba(34,227,163,0.7)">○&nbsp;Что изменится у ученика?</div>
-            <div class="guide-quiz-opt">Сколько уроков сделать?</div>
-          </div>
+        <div>
+          <div class="dir-plan-title">План дня</div>
+          <div class="dir-plan-item">Приоритет 1 — Дописать пост про запуск курса</div>
+          <div class="dir-plan-item">Приоритет 2 — Провести созвон с командой</div>
+          <div class="dir-plan-item">Приоритет 3 — Проверить аналитику канала</div>
         </div>
       </div>
-    </div>
-    <div class="vivi-note">👥 <strong>Команда VIVI</strong>&nbsp;поможет вам превратить запись в продукт — вы отвечаете на вопросы об аудитории, офис создаёт методичку в вашем голосе.
     </div>
   </div>
+  <div class="tech-strip">
+    <span class="tech-pill">Директор</span>
+    <span class="tech-pill">Утренние сессии</span>
+    <span class="tech-pill">Notion</span>
+  </div>
+  <div class="vivi-note">👥 <span>Команда VIVI</span>&nbsp;настроит утренний ритуал и покажет как правильно вести первую сессию с Директором.</div>
 </div>
-
 </div>
 
 <!-- SEP -->
@@ -668,26 +745,25 @@
 <!-- ════ ИТОГ ════ -->
 <div class="result-block">
   <div class="result-badge">Программа завершена</div>
-  <h2><span class="grad">Цифровой офис запущен</span><br><span style="color:var(--ink)">и работает на вас.</span></h2>
+  <h2><span class="grad" style="background: linear-gradient(92deg, var(--green), var(--violet)); -webkit-background-clip:text; background-clip:text; color:transparent;">Цифровой офис запущен</span><br><span style="color:var(--ink)">и работает на вас.</span></h2>
   <p class="result-lead">Пять этапов пройдено вместе с командой VIVI. Теперь система полностью ваша — работает 24/7. Если возникнут вопросы — команда VIVI всегда на связи.</p>
-
   <div class="res-grid">
     <div class="res-card">
       <span class="fi">💻</span>
-      <p>Рабочая среда<br><span style="color:#4b5563; font-size:11px;">Ваш персональный офис</span></p>
+      <p>Рабочая среда<br><span style="color:#4b5563;font-size:11px;">Персональный офис</span></p>
     </div>
     <div class="res-card">
       <span class="fi">🌐</span>
-      <p>Сайт в фирменном стиле<br><span style="color:#4b5563; font-size:11px;">Опубликован и доступен</span></p>
+      <p>Сайт в фирменном стиле<br><span style="color:#4b5563;font-size:11px;">Опубликован и доступен</span></p>
     </div>
     <div class="res-card">
-      <span class="fi">🎙️</span>
-      <p>Голос зафиксирован<br><span style="color:#4b5563; font-size:11px;">Пишет как вы</span></p>
+      <span class="fi">🤖</span>
+      <p>Бот + Notion<br><span style="color:#4b5563;font-size:11px;">Задачи под контролем</span></p>
     </div>
   </div>
 </div>
 
-<p class="foot">VIVI VIP · Дорожная карта клиента · v1 · 01.07.2026</p>
+<p class="foot">VIVI VIP · Дорожная карта клиента · v2 · 02.07.2026</p>
 
 </div>
 </body>
