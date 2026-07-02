@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>VIVI · Превью шага — сравнение</title>
+<style>
+  :root {
+    --bg: #0b0a12;
+    --card: #16131f;
+    --line: #272235;
+    --ink: #f3f0fa;
+    --mut: #9c93b3;
+    --pink: #ff3db5;
+    --green: #22e3a3;
+    --violet: #8b5cff;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    background: radial-gradient(900px 500px at 80% -10%, #1e1430 0%, var(--bg) 55%);
+    color: var(--ink);
+    font: 16px/1.6 -apple-system, "Segoe UI", Roboto, sans-serif;
+    padding: 40px 20px 80px;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .page-title {
+    text-align: center; margin-bottom: 40px;
+  }
+  .page-title h1 { font-size: 22px; font-weight: 800; margin-bottom: 6px; }
+  .page-title p { font-size: 14px; color: var(--mut); }
+
+  .compare {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 32px;
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+
+  .col-label {
+    text-align: center;
+    font-size: 11px; letter-spacing: .18em; text-transform: uppercase;
+    font-weight: 700; padding: 8px 0 16px;
+  }
+  .col-label.old { color: #6b6080; }
+  .col-label.new { color: var(--green); }
+
+  /* ══ ОБЩИЕ СТИЛИ ДЛЯ ОБОИХ ВАРИАНТОВ ══ */
+  .step {
+    background: var(--card);
+    border: 1px solid var(--line);
+    border-radius: 20px;
+    overflow: hidden;
+    position: relative;
+  }
+  .step::before {
+    content: "";
+    position: absolute; left: 0; top: 0; bottom: 0; width: 4px;
+    background: linear-gradient(var(--pink), var(--violet));
+  }
+  .hd {
+    display: flex; align-items: center; gap: 16px;
+    padding: 22px 26px 10px;
+  }
+  .num {
+    flex: 0 0 46px; height: 46px; border-radius: 14px;
+    display: grid; place-items: center;
+    font-weight: 800; font-size: 20px;
+    background: linear-gradient(135deg, var(--pink), var(--violet));
+    color: #fff;
+  }
+  .body { padding: 6px 26px 24px; }
+
+  /* ══ ВАРИАНТ А — КАК СЕЙЧАС ══ */
+  .step-time-old {
+    margin-left: auto; flex-shrink: 0;
+    font-size: 12px; font-weight: 700;
+    color: var(--violet); border: 1px solid rgba(139,92,255,0.3);
+    background: rgba(139,92,255,0.1);
+    border-radius: 999px; padding: 3px 11px;
+  }
+  .io { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin: 12px 0; }
+  .io > div { border-radius: 12px; padding: 12px 14px; font-size: 14px; }
+  .in  { background: rgba(139,92,255,.10); border: 1px solid rgba(139,92,255,.35); }
+  .out { background: rgba(34,227,163,.08); border: 1px solid rgba(34,227,163,.32); }
+  .io .k {
+    font-size: 11px; letter-spacing: .12em; text-transform: uppercase;
+    color: var(--mut); display: block; margin-bottom: 3px;
+  }
+  .out .k { color: var(--green); }
+  .in  .k { color: #b69cff; }
+
+  .mockup-label-old {
+    display: flex; align-items: center; gap: 8px;
+    margin-top: 18px; margin-bottom: 8px;
+    font-size: 11px; letter-spacing: .14em; text-transform: uppercase;
+    font-weight: 700; color: var(--violet);
+  }
+  .mockup-label-old::before { content: ''; width: 14px; height: 1px; background: var(--violet); opacity: 0.5; }
+  .mockup-label-old::after  { content: ''; flex: 1; height: 1px; background: linear-gradient(90deg, rgba(139,92,255,0.3), transparent); }
+
+  .mockup-window {
+    background: #0f0c1a;
+    border: 1px solid rgba(255,255,255,0.08);
+    border-radius: 12px; overflow: hidden;
+  }
+  .mockup-titlebar {
+    background: #1a1630; padding: 8px 14px;
+    display: flex; align-items: center; gap: 8px;
+    border-bottom: 1px solid rgba(255,255,255,0.06);
+  }
+  .m-dot { width: 10px; height: 10px; border-radius: 50%; }
+  .m-dot.r { background: #ff5f57; }
+  .m-dot.y { background: #febc2e; }
+  .m-dot.g { background: #28c840; }
+  .mockup-title-text { font-size: 11px; color: rgba(255,255,255,0.4); margin-left: 6px; font-family: ui-monospace, monospace; }
+  .mockup-chat-body { padding: 14px 16px; display: flex; flex-direction: column; gap: 10px; }
+  .chat-msg { padding: 9px 13px; border-radius: 10px; max-width: 82%; font-size: 13px; line-height: 1.5; }
+  .chat-msg.user { background: rgba(139,92,255,0.2); border: 1px solid rgba(139,92,255,0.3); color: rgba(255,255,255,0.8); align-self: flex-end; border-radius: 10px 10px 3px 10px; }
+  .chat-msg.bot  { background: rgba(34,227,163,0.08); border: 1px solid rgba(34,227,163,0.2); color: rgba(255,255,255,0.75); align-self: flex-start; border-radius: 10px 10px 10px 3px; }
+  .chat-sender { font-size: 10px; color: var(--green); font-weight: 700; margin-bottom: 4px; letter-spacing: .06em; }
+
+  .vivi-support-old {
+    background: rgba(34,227,163,0.05);
+    border: 1px solid rgba(34,227,163,0.2);
+    border-radius: 12px; padding: 11px 16px;
+    margin-top: 14px; font-size: 13px; color: var(--mut); line-height: 1.6;
+    display: flex; align-items: center; gap: 10px;
+  }
+  .vivi-support-old::before { content: '👥'; flex-shrink: 0; font-size: 16px; }
+  .vivi-support-old strong { color: var(--green); }
+
+  .pills-old { margin-top: 12px; }
+  .pill-old {
+    display: inline-block; font-size: 11px; color: var(--green);
+    border: 1px solid rgba(34,227,163,0.4); border-radius: 999px; padding: 2px 9px; margin: 2px 4px 0 0;
+  }
+
+  /* ══ ВАРИАНТ Б — НОВЫЙ ══ */
+  .step-time-new {
+    margin-left: auto; flex-shrink: 0;
+    font-size: 11px; font-weight: 600;
+    color: rgba(255,255,255,0.28);
+    padding: 2px 0;
+  }
+
+  .value-block {
+    margin: 14px 0 4px;
+    background: rgba(255,255,255,0.03);
+    border-left: 3px solid var(--violet);
+    border-radius: 0 10px 10px 0;
+    padding: 12px 16px;
+  }
+  .value-why {
+    font-size: 13px; font-weight: 700; color: var(--ink); margin-bottom: 8px; line-height: 1.4;
+  }
+  .value-transform {
+    display: flex; align-items: center; gap: 10px;
+    font-size: 13px; color: var(--mut);
+  }
+  .val-before { color: rgba(255,255,255,0.4); }
+  .val-arrow  { color: var(--violet); font-size: 16px; flex-shrink: 0; }
+  .val-after  { color: var(--green); font-weight: 600; }
+
+  .mockup-label-new {
+    display: flex; align-items: center; gap: 8px;
+    margin-top: 16px; margin-bottom: 8px;
+    font-size: 11px; letter-spacing: .14em; text-transform: uppercase;
+    font-weight: 700; color: var(--violet);
+  }
+  .mockup-label-new::before { content: ''; width: 14px; height: 1px; background: var(--violet); opacity: 0.5; }
+  .mockup-label-new::after  { content: ''; flex: 1; height: 1px; background: linear-gradient(90deg, rgba(139,92,255,0.3), transparent); }
+
+  .vivi-note-new {
+    margin-top: 12px;
+    font-size: 12px; color: rgba(255,255,255,0.32);
+    display: flex; align-items: center; gap: 6px;
+    line-height: 1.5;
+  }
+  .vivi-note-new span { color: rgba(34,227,163,0.6); font-weight: 600; }
+
+  @media (max-width: 760px) {
+    .compare { grid-template-columns: 1fr; }
+    .io { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<div class="page-title">
+  <h1>Сравнение вариантов шага</h1>
+  <p>Слева — как сейчас. Справа — предложение. Посмотри и скажи что нравится.</p>
+</div>
+
+<div class="compare">
+
+  <!-- ══ ЛЕВАЯ КОЛОНКА — КАК СЕЙЧАС ══ -->
+  <div>
+    <div class="col-label old">— Как сейчас —</div>
+    <div class="step">
+      <div class="hd">
+        <div class="num">I</div>
+        <div>
+          <h2 style="font-size:20px;font-weight:700;">Запуск рабочей среды</h2>
+          <div style="color:var(--mut);font-size:13px;">Команда VIVI настраивает всё с нуля — вы просто рядом</div>
+        </div>
+        <div class="step-time-old">~40 мин</div>
+      </div>
+      <div class="body">
+        <div class="io">
+          <div class="in">
+            <span class="k">Точка входа</span>
+            Обычный ноутбук. Никаких специальных программ, никаких знаний о нейросетях. Просто вы и ваш компьютер.
+          </div>
+          <div class="out">
+            <span class="k">Точка выхода</span>
+            Рабочая среда настроена. Ваш офис запущен и ответил на первое сообщение.
+          </div>
+        </div>
+        <div class="mockup-label-old">Вот что вас ждёт в конце этого шага</div>
+        <div class="mockup-window">
+          <div class="mockup-titlebar">
+            <div class="m-dot r"></div><div class="m-dot y"></div><div class="m-dot g"></div>
+            <span class="mockup-title-text">Cursor — VIVI Office</span>
+          </div>
+          <div class="mockup-chat-body">
+            <div class="chat-msg user">привет</div>
+            <div class="chat-msg bot">
+              <div class="chat-sender">✦ VIVI Office</div>
+              Привет! Я ваш персональный цифровой офис. Готов помочь с контентом, дизайном, стратегией — просто скажите, что нужно сделать.
+            </div>
+          </div>
+        </div>
+        <div class="vivi-support-old">
+          <strong>Команда VIVI</strong>&nbsp;поможет вам настроить рабочую среду шаг за шагом. Вы будете рядом и увидите, как система работает изнутри.
+        </div>
+        <div class="pills-old">
+          <span class="pill-old">Cursor</span>
+          <span class="pill-old">Claude Code</span>
+          <span class="pill-old">Zoom</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══ ПРАВАЯ КОЛОНКА — НОВЫЙ ВАРИАНТ ══ -->
+  <div>
+    <div class="col-label new">— Предложение —</div>
+    <div class="step">
+      <div class="hd">
+        <div class="num">I</div>
+        <div>
+          <h2 style="font-size:20px;font-weight:700;">Запуск рабочей среды</h2>
+        </div>
+        <div class="step-time-new">~40 мин</div>
+      </div>
+      <div class="body">
+        <div class="value-block">
+          <div class="value-why">Первое знакомство с вашим офисом. После этого шага у вас появится инструмент, который будет выполнять задачи по вашей команде — 24/7, без найма сотрудников.</div>
+          <div class="value-transform">
+            <span class="val-before">Пустой ноутбук</span>
+            <span class="val-arrow">→</span>
+            <span class="val-after">Офис запущен и ответил</span>
+          </div>
+        </div>
+        <div class="mockup-label-new">Вот что вас ждёт в конце этого шага</div>
+        <div class="mockup-window">
+          <div class="mockup-titlebar">
+            <div class="m-dot r"></div><div class="m-dot y"></div><div class="m-dot g"></div>
+            <span class="mockup-title-text">Cursor — VIVI Office</span>
+          </div>
+          <div class="mockup-chat-body">
+            <div class="chat-msg user">привет</div>
+            <div class="chat-msg bot">
+              <div class="chat-sender">✦ VIVI Office</div>
+              Привет! Я ваш персональный цифровой офис. Готов помочь с контентом, дизайном, стратегией — просто скажите, что нужно сделать.
+            </div>
+          </div>
+        </div>
+        <div class="vivi-note-new">
+          👥 <span>Команда VIVI</span>&nbsp;поможет вам настроить всё шаг за шагом.
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+</body>
+</html>

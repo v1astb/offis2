@@ -1,0 +1,820 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>VIVI VIP — Дорожная карта включения клиента</title>
+<style>
+  :root {
+    --bg: #0b0a12;
+    --card: #16131f;
+    --line: #272235;
+    --ink: #f3f0fa;
+    --mut: #9c93b3;
+    --pink: #ff3db5;
+    --green: #22e3a3;
+    --violet: #8b5cff;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    background: radial-gradient(900px 500px at 80% -10%, #1e1430 0%, var(--bg) 55%);
+    color: var(--ink);
+    font: 16px/1.6 -apple-system, "Segoe UI", Roboto, sans-serif;
+    padding: 0 0 80px;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .wrap { max-width: 1080px; margin: 0 auto; padding: 0 20px; }
+
+  /* ════ HERO ════ */
+  .hero {
+    padding: 56px 20px 40px;
+  }
+  .hero-wrap { max-width: 1080px; margin: 0 auto; }
+  .tag {
+    display: inline-block;
+    font-size: 12px; letter-spacing: .18em; text-transform: uppercase;
+    color: var(--green); border: 1px solid var(--green);
+    border-radius: 999px; padding: 6px 14px; margin-bottom: 18px;
+  }
+  h1 {
+    font-size: 42px; line-height: 1.1; font-weight: 800;
+    letter-spacing: -.02em; margin-bottom: 14px;
+  }
+  h1 .grad {
+    background: linear-gradient(92deg, var(--pink), var(--violet) 60%, var(--green));
+    -webkit-background-clip: text; background-clip: text; color: transparent;
+  }
+  .lead { color: var(--mut); max-width: 680px; margin-bottom: 14px; }
+  .price-badge {
+    display: inline-block;
+    background: linear-gradient(135deg, var(--pink), var(--violet));
+    color: #fff; font-size: 20px; font-weight: 800;
+    padding: 8px 26px; border-radius: 12px;
+    box-shadow: 0 0 30px rgba(255,61,181,0.35);
+    margin-top: 8px;
+  }
+
+  /* ════ PROGRESS ════ */
+  .progress-wrap {
+    max-width: 1080px; margin: 0 auto 36px; padding: 0 20px;
+  }
+  .progress-track {
+    display: flex; align-items: center; justify-content: space-between;
+    position: relative;
+  }
+  .progress-track::before {
+    content: '';
+    position: absolute;
+    top: 17px; left: 18px; right: 18px;
+    height: 2px; background: var(--line);
+  }
+  .prog-step {
+    display: flex; flex-direction: column; align-items: center;
+    gap: 6px; z-index: 1;
+  }
+  .prog-dot {
+    width: 34px; height: 34px; border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 13px; font-weight: 800; color: #fff;
+  }
+  .pd-0   { background: linear-gradient(135deg, var(--violet), var(--pink)); box-shadow: 0 0 12px rgba(139,92,255,0.5); }
+  .pd-1   { background: linear-gradient(135deg, var(--pink), var(--violet)); box-shadow: 0 0 12px rgba(255,61,181,0.4); }
+  .pd-2   { background: linear-gradient(135deg, var(--violet), var(--green)); box-shadow: 0 0 12px rgba(139,92,255,0.4); }
+  .pd-3   { background: linear-gradient(135deg, var(--green), var(--violet)); box-shadow: 0 0 12px rgba(34,227,163,0.4); }
+  .pd-4   { background: linear-gradient(135deg, var(--pink), var(--green));  box-shadow: 0 0 12px rgba(255,61,181,0.3); }
+  .pd-5   { background: linear-gradient(135deg, var(--green), var(--pink));  box-shadow: 0 0 12px rgba(34,227,163,0.4); }
+  .pd-fin { background: linear-gradient(135deg, var(--green), var(--violet)); box-shadow: 0 0 14px rgba(34,227,163,0.5); }
+  .prog-label {
+    font-size: 10px; color: var(--mut); text-align: center;
+    max-width: 60px; line-height: 1.3;
+  }
+
+  /* ════ INTRO (ШАГ 0) ════ */
+  .intro {
+    background: var(--card);
+    border: 1px solid rgba(139,92,255,0.35);
+    border-radius: 20px;
+    padding: 28px 30px;
+    position: relative;
+    overflow: hidden;
+    margin-bottom: 0;
+  }
+  .intro::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, var(--pink), var(--violet), var(--green));
+  }
+  .intro-label {
+    font-size: 11px; letter-spacing: .15em; text-transform: uppercase;
+    color: var(--violet); margin-bottom: 14px; display: block;
+  }
+  .intro h2 {
+    font-size: 24px; font-weight: 800; margin-bottom: 10px; line-height: 1.25;
+  }
+  .intro h2 .grad { background: linear-gradient(92deg, var(--pink), var(--violet) 60%, var(--green)); -webkit-background-clip:text; background-clip:text; color:transparent; }
+  .intro-lead { color: var(--mut); font-size: 14px; margin-bottom: 22px; max-width: 640px; }
+
+  .ba-grid {
+    display: grid; grid-template-columns: 1fr auto 1fr; gap: 12px;
+    align-items: center; margin-bottom: 20px;
+  }
+  .ba-col { border-radius: 12px; padding: 14px 16px; }
+  .ba-before { background: rgba(255,61,181,0.07); border: 1px solid rgba(255,61,181,0.2); }
+  .ba-after  { background: rgba(34,227,163,0.07); border: 1px solid rgba(34,227,163,0.2); }
+  .ba-lbl { font-size: 10px; font-weight: 800; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 8px; }
+  .ba-before .ba-lbl { color: var(--pink); }
+  .ba-after  .ba-lbl { color: var(--green); }
+  .ba-col ul { list-style: none; }
+  .ba-col li { font-size: 13px; color: var(--mut); line-height: 1.6; padding: 1px 0; }
+  .ba-before li::before { content: '✗ '; color: var(--pink); }
+  .ba-after  li::before { content: '✓ '; color: var(--green); }
+  .ba-arrow { font-size: 22px; color: var(--line); text-align: center; }
+
+  .val-grid {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-bottom: 20px;
+  }
+  .val-card {
+    background: #100e18; border: 1px solid var(--line);
+    border-radius: 14px; padding: 16px 18px;
+    transition: border-color 0.2s;
+  }
+  .val-card:hover { border-color: rgba(139,92,255,0.3); }
+  .val-icon { font-size: 22px; margin-bottom: 8px; display: block; }
+  .val-card h4 { font-size: 14px; font-weight: 700; color: var(--ink); margin-bottom: 4px; }
+  .val-card p  { font-size: 13px; color: var(--mut); line-height: 1.55; }
+
+  .intro-note {
+    background: #100e18;
+    border: 1px solid rgba(139,92,255,0.25);
+    border-left: 3px solid var(--violet);
+    border-radius: 0 10px 10px 0;
+    padding: 12px 16px;
+    font-size: 13px; color: var(--mut); line-height: 1.6;
+  }
+  .intro-note strong { color: var(--ink); }
+
+  /* ════ CONNECTOR ════ */
+  .conn {
+    display: flex; flex-direction: column; align-items: center;
+    padding: 2px 0;
+  }
+  .conn-line {
+    width: 2px; height: 28px;
+    background: linear-gradient(to bottom, var(--violet), var(--green));
+  }
+  .conn-dot {
+    width: 26px; height: 26px; border-radius: 50%;
+    background: linear-gradient(135deg, var(--violet), var(--green));
+    display: flex; align-items: center; justify-content: center;
+    font-size: 11px; font-weight: 800; color: #fff;
+    box-shadow: 0 0 10px rgba(139,92,255,0.4);
+  }
+  .conn-chip {
+    font-size: 11px; letter-spacing: .1em; text-transform: uppercase;
+    color: var(--mut); margin-top: 4px;
+  }
+
+  /* ════ STEP CARD ════ */
+  .steps { display: flex; flex-direction: column; gap: 0; }
+
+  .step {
+    background: var(--card);
+    border: 1px solid var(--line);
+    border-radius: 20px;
+    overflow: hidden;
+    position: relative;
+  }
+  .step::before {
+    content: "";
+    position: absolute; left: 0; top: 0; bottom: 0;
+    width: 4px;
+    background: linear-gradient(var(--pink), var(--violet));
+  }
+
+  .step .hd {
+    display: flex; align-items: center; gap: 16px;
+    padding: 22px 26px 10px;
+  }
+  .num {
+    flex: 0 0 46px; height: 46px; border-radius: 14px;
+    display: grid; place-items: center;
+    font-weight: 800; font-size: 20px;
+    background: linear-gradient(135deg, var(--pink), var(--violet));
+    color: #fff;
+  }
+  .hd h2 { font-size: 22px; font-weight: 700; }
+  .hd .sub { color: var(--mut); font-size: 13px; }
+  .step-time {
+    margin-left: auto; flex-shrink: 0;
+    font-size: 12px; font-weight: 700;
+    color: var(--violet); border: 1px solid rgba(139,92,255,0.3);
+    background: rgba(139,92,255,0.1);
+    border-radius: 999px; padding: 3px 11px;
+  }
+
+  .body { padding: 6px 26px 24px; }
+
+  /* io — entry/exit */
+  .io { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin: 12px 0; }
+  .io > div { border-radius: 12px; padding: 12px 14px; font-size: 14px; }
+  .in  { background: rgba(139,92,255,.10); border: 1px solid rgba(139,92,255,.35); }
+  .out { background: rgba(34,227,163,.08); border: 1px solid rgba(34,227,163,.32); }
+  .io .k {
+    font-size: 11px; letter-spacing: .12em; text-transform: uppercase;
+    color: var(--mut); display: block; margin-bottom: 3px;
+  }
+  .out .k { color: var(--green); }
+  .in  .k { color: #b69cff; }
+
+  /* tip */
+  .tip {
+    background: rgba(255,61,181,0.07); border: 1px solid rgba(255,61,181,0.2);
+    border-radius: 10px; padding: 12px 14px;
+    font-size: 13px; color: var(--mut); line-height: 1.6; margin-top: 6px;
+  }
+  .tip strong { color: var(--ink); }
+
+  /* client instruction */
+  .cli {
+    background: #100e18; border: 1px solid var(--line);
+    border-radius: 12px; padding: 12px 14px; font-size: 13px; color: var(--mut);
+    margin-top: 6px;
+  }
+  .cli b { color: var(--ink); display: block; margin-bottom: 4px; font-size: 13px; }
+
+  /* prompt */
+  .prompt {
+    background: #080712; border: 1px solid #3a3060;
+    border-radius: 10px; padding: 12px 14px; margin-top: 10px;
+  }
+  .pk {
+    font-size: 10px; letter-spacing: .13em; text-transform: uppercase;
+    color: var(--violet); display: block; margin-bottom: 6px;
+  }
+  .prompt code {
+    color: var(--green); font-family: 'SF Mono', ui-monospace, monospace;
+    font-size: 12px; white-space: pre-wrap; word-break: break-word; display: block;
+  }
+
+  /* variants */
+  .variants { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-top: 6px; }
+  .variant {
+    background: #100e18; border: 1px solid var(--line);
+    border-radius: 12px; padding: 13px 14px; font-size: 13px; color: var(--mut);
+  }
+  .variant h4 { font-size: 13px; font-weight: 700; color: var(--ink); margin-bottom: 4px; }
+  .variant.rec { border-color: rgba(34,227,163,0.3); background: rgba(34,227,163,0.05); }
+  .variant.rec h4 { color: var(--green); }
+
+  /* skill chip */
+  .skill-chip {
+    display: inline-flex; align-items: center; gap: 6px;
+    background: rgba(139,92,255,0.12); border: 1px solid rgba(139,92,255,0.35);
+    color: #b69cff; font-size: 13px; font-weight: 700;
+    font-family: 'SF Mono', ui-monospace, monospace;
+    padding: 5px 13px; border-radius: 8px;
+  }
+
+  /* tags / pills */
+  .pills { margin-top: 12px; }
+  .pill {
+    display: inline-block;
+    font-size: 11px; color: var(--green); border: 1px solid rgba(34,227,163,0.4);
+    border-radius: 999px; padding: 2px 9px; margin: 2px 4px 0 0;
+  }
+
+  /* ════ RESULT ════ */
+  .result {
+    background: var(--card);
+    border: 1px solid rgba(34,227,163,0.3);
+    border-radius: 20px;
+    padding: 36px 30px;
+    text-align: center;
+    position: relative; overflow: hidden;
+    margin-top: 0;
+  }
+  .result::before {
+    content: '';
+    position: absolute; top: 0; left: 0; right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, var(--green), var(--violet), var(--pink));
+  }
+  .result-badge {
+    display: inline-block;
+    font-size: 11px; letter-spacing: .15em; text-transform: uppercase;
+    color: var(--green); border: 1px solid rgba(34,227,163,0.4);
+    border-radius: 999px; padding: 5px 14px; margin-bottom: 16px;
+  }
+  .result h2 {
+    font-size: 28px; font-weight: 800; margin-bottom: 10px; line-height: 1.2;
+  }
+  .result-lead { color: var(--mut); font-size: 14px; max-width: 500px; margin: 0 auto 24px; }
+  .res-grid {
+    display: grid; grid-template-columns: repeat(3, 1fr);
+    gap: 12px; margin-bottom: 24px;
+  }
+  .res-card {
+    background: #100e18; border: 1px solid var(--line);
+    border-radius: 14px; padding: 18px 14px; text-align: center;
+  }
+  .res-card .fi { font-size: 26px; margin-bottom: 8px; display: block; }
+  .res-card p  { font-size: 13px; color: var(--mut); line-height: 1.45; }
+  .cta {
+    display: inline-block;
+    background: linear-gradient(135deg, var(--pink), var(--violet));
+    color: #fff; font-size: 15px; font-weight: 700;
+    padding: 13px 32px; border-radius: 12px; text-decoration: none;
+    box-shadow: 0 0 28px rgba(255,61,181,0.35);
+    transition: box-shadow 0.2s, transform 0.2s;
+  }
+  .cta:hover { box-shadow: 0 0 44px rgba(255,61,181,0.55); transform: translateY(-2px); }
+
+  /* ════ INFRA ════ */
+  .infra { margin-top: 46px; }
+  .infra h3 {
+    font-size: 14px; letter-spacing: .14em; text-transform: uppercase;
+    color: var(--mut); margin-bottom: 14px;
+  }
+  .itable {
+    width: 100%; border-collapse: collapse;
+    background: var(--card); border: 1px solid var(--line);
+    border-radius: 16px; overflow: hidden;
+  }
+  .itable td {
+    padding: 13px 18px; border-bottom: 1px solid var(--line);
+    font-size: 14px; vertical-align: top;
+  }
+  .itable tr:last-child td { border-bottom: none; }
+  .itable td:first-child { color: var(--mut); width: 230px; }
+
+  .foot {
+    margin-top: 40px; color: var(--mut);
+    font-size: 13px; text-align: center;
+  }
+
+  @media (max-width: 760px) {
+    h1 { font-size: 30px; }
+    .io, .val-grid, .variants, .ba-grid, .res-grid { grid-template-columns: 1fr; }
+    .ba-arrow { display: none; }
+    .prog-label { display: none; }
+    .intro, .body, .hd { padding-left: 18px; padding-right: 18px; }
+    .result { padding: 26px 20px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ════ HERO ════ -->
+<div class="hero">
+  <div class="hero-wrap">
+    <span class="tag">VIVI VIP · $1500</span>
+    <h1>Дорожная карта <span class="grad">включения VIP-клиента</span></h1>
+    <p class="lead">5 последовательных этапов — от установки до работающего цифрового офиса. У каждого шага чёткая точка входа, измеримая точка выхода и инструкция для клиента.</p>
+    <div class="price-badge">$1 500</div>
+  </div>
+</div>
+
+<!-- ════ ПРОГРЕСС ════ -->
+<div class="progress-wrap">
+  <div class="progress-track">
+    <div class="prog-step">
+      <div class="prog-dot pd-0">0</div>
+      <div class="prog-label">Введение</div>
+    </div>
+    <div class="prog-step">
+      <div class="prog-dot pd-1">I</div>
+      <div class="prog-label">Установка</div>
+    </div>
+    <div class="prog-step">
+      <div class="prog-dot pd-2">II</div>
+      <div class="prog-label">Дизайн</div>
+    </div>
+    <div class="prog-step">
+      <div class="prog-dot pd-3">III</div>
+      <div class="prog-label">Голос</div>
+    </div>
+    <div class="prog-step">
+      <div class="prog-dot pd-4">IV</div>
+      <div class="prog-label">Транскриб.</div>
+    </div>
+    <div class="prog-step">
+      <div class="prog-dot pd-5">V</div>
+      <div class="prog-label">Методичка</div>
+    </div>
+    <div class="prog-step">
+      <div class="prog-dot pd-fin">✓</div>
+      <div class="prog-label">Готово</div>
+    </div>
+  </div>
+</div>
+
+<div class="wrap">
+
+<!-- ════ ШАГ 0: ВВЕДЕНИЕ ════ -->
+<div class="intro">
+  <span class="intro-label">Шаг 0 · Введение</span>
+  <h2>Что такое VIVI-офис<br>и что изменится <span class="grad">после программы</span></h2>
+  <p class="intro-lead">
+    VIVI — это цифровой рабочий офис, где агент-дизайнер строит сайты за один разговор, агент-копирайтер пишет вашим голосом, а знания из эфиров превращаются в интерактивные методички. Всё в одном месте — без фрилансеров и ожиданий.
+  </p>
+
+  <div class="ba-grid">
+    <div class="ba-col ba-before">
+      <div class="ba-lbl">Точка А — сейчас</div>
+      <ul>
+        <li>5 разных сервисов</li>
+        <li>Фрилансеры и ожидание</li>
+        <li>Потеря голоса и стиля</li>
+        <li>Контент неделями</li>
+      </ul>
+    </div>
+    <div class="ba-arrow">→</div>
+    <div class="ba-col ba-after">
+      <div class="ba-lbl">Точка Б — после программы</div>
+      <ul>
+        <li>Один штаб для всего</li>
+        <li>Результат за разговор</li>
+        <li>Всё в вашем голосе</li>
+        <li>Контент за минуты</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="val-grid">
+    <div class="val-card">
+      <span class="val-icon">🎨</span>
+      <h4>Сайт за один разговор</h4>
+      <p>Агент-дизайнер собирает брендбук и строит сайт — без фриланса и ожиданий</p>
+    </div>
+    <div class="val-card">
+      <span class="val-icon">✍️</span>
+      <h4>Тексты вашим голосом</h4>
+      <p>Офис изучает ваш стиль и пишет так, что читатель не отличит от оригинала</p>
+    </div>
+    <div class="val-card">
+      <span class="val-icon">🧠</span>
+      <h4>Знания — в продукт</h4>
+      <p>Записали эфир? Через минуту — интерактивная методичка без лишних усилий</p>
+    </div>
+    <div class="val-card">
+      <span class="val-icon">⚡</span>
+      <h4>Один штаб — всё в нём</h4>
+      <p>Дизайн, контент, голос — всё работает вместе, а не в пяти разных сервисах</p>
+    </div>
+  </div>
+
+  <div class="intro-note">
+    Каждый шаг ниже построен по единой схеме: <strong>точка входа → что делаем → результат на выходе.</strong> Никаких слепых зон — всегда понятно, что происходит и что будет дальше.
+  </div>
+</div>
+
+<!-- connector 0→1 -->
+<div class="conn">
+  <div class="conn-line"></div>
+  <div class="conn-dot">→</div>
+  <div class="conn-chip">Шаг 1 — установка среды</div>
+</div>
+
+<div class="steps">
+
+<!-- ════ ШАГ I: УСТАНОВКА ════ -->
+<div class="step">
+  <div class="hd">
+    <div class="num">I</div>
+    <div>
+      <h2>Установка рабочей среды</h2>
+      <div class="sub">Cursor + Claude Code через Zoom Remote Control</div>
+    </div>
+    <div class="step-time">~40 мин</div>
+  </div>
+  <div class="body">
+    <div class="io">
+      <div class="in">
+        <span class="k">Точка входа</span>
+        Zoom-созвон запущен, менеджер подключился через Remote Control. Компьютер без Cursor, Claude и VPN.
+      </div>
+      <div class="out">
+        <span class="k">Точка выхода</span>
+        Клиент <strong>самостоятельно</strong> написал первое сообщение в Cursor и получил ответ офиса.
+      </div>
+    </div>
+    <div class="cli">
+      <b>Что делает клиент</b>
+      Менеджер за 2 минуты объясняет, что такое офис, на человеческом языке. После этого клиент самостоятельно отправляет первое сообщение.
+    </div>
+    <div class="prompt">
+      <span class="pk">Первое сообщение в Cursor</span>
+      <code>привет</code>
+    </div>
+    <div class="pills">
+      <span class="pill">Cursor</span>
+      <span class="pill">Claude Code</span>
+      <span class="pill">Zoom Remote Control</span>
+      <span class="pill">VPN США</span>
+    </div>
+  </div>
+</div>
+
+</div><!-- /steps (break for connector) -->
+
+<!-- connector 1→2 -->
+<div class="conn">
+  <div class="conn-line"></div>
+  <div class="conn-dot">→</div>
+  <div class="conn-chip">Шаг 2 — дизайн и брендинг</div>
+</div>
+
+<div class="steps">
+
+<!-- ════ ШАГ II: ДИЗАЙН ════ -->
+<div class="step">
+  <div class="hd">
+    <div class="num">II</div>
+    <div>
+      <h2>Дизайн и брендинг</h2>
+      <div class="sub">Брендбук → фирменный стиль → первый сайт на Vercel</div>
+    </div>
+    <div class="step-time">~50 мин</div>
+  </div>
+  <div class="body">
+    <div class="io">
+      <div class="in">
+        <span class="k">Точка входа</span>
+        Офис ответил. Менеджер пишет: <em>«Отлично, офис работает! Открывайте Cursor — делаем сайт»</em>
+      </div>
+      <div class="out">
+        <span class="k">Точка выхода</span>
+        Брендбук собран. Сайт задеплоен на Vercel в фирменном стиле. Клиент поделился ссылкой.
+      </div>
+    </div>
+    <div class="tip">
+      <strong>Важно:</strong> промпт активирует агента-Дизайнера, который сначала собирает брендбук через вопросы по одному — и только потом строит сайт на его основе.
+    </div>
+    <div class="cli">
+      <b>Что делает клиент</b>
+      Вставить промпт и отвечать на вопросы агента по одному. Агент спрашивает — клиент отвечает. Это опрос о вашем бренде.
+    </div>
+    <div class="prompt">
+      <span class="pk">Промпт в Cursor</span>
+      <code>Запусти агента-Дизайнера. Сначала собери мой брендбук: задай мне вопросы по одному — про цвета, шрифты, ценности бренда, целевую аудиторию и стиль. После того, как брендбук собран и зафиксирован, создай мой первый сайт на Vercel в этом фирменном стиле.</code>
+    </div>
+    <div class="pills">
+      <span class="pill">Агент Дизайнер</span>
+      <span class="pill">Брендбук</span>
+      <span class="pill">Vercel</span>
+    </div>
+  </div>
+</div>
+
+</div>
+
+<!-- connector 2→3 -->
+<div class="conn">
+  <div class="conn-line"></div>
+  <div class="conn-dot">→</div>
+  <div class="conn-chip">Шаг 3 — голос эксперта</div>
+</div>
+
+<div class="steps">
+
+<!-- ════ ШАГ III: ГОЛОС ════ -->
+<div class="step">
+  <div class="hd">
+    <div class="num">III</div>
+    <div>
+      <h2>Голос эксперта</h2>
+      <div class="sub">Распаковка tone of voice через скилл /voice-dna</div>
+    </div>
+    <div class="step-time">~30 мин</div>
+  </div>
+  <div class="body">
+    <div class="io">
+      <div class="in">
+        <span class="k">Точка входа</span>
+        Сайт готов. Менеджер пишет: <em>«Отлично! Теперь научим офис писать вашим голосом. Пришлите 5–15 своих лучших постов»</em>
+      </div>
+      <div class="out">
+        <span class="k">Точка выхода</span>
+        Файл voice.md создан. Голос зафиксирован в офисе. Тестовый пост написан — клиент говорит «это прям я».
+      </div>
+    </div>
+    <div class="cli">
+      <b>Что делает клиент</b>
+      Скопировать 5–15 своих постов или текстов и вставить после команды скилла. Чем больше примеров — тем точнее офис поймёт голос.
+    </div>
+    <div class="prompt">
+      <span class="pk">Промпт в Cursor</span>
+      <code>/voice-dna
+
+Вот мои тексты:
+[вставить 5–15 постов]
+
+После распаковки голоса — напиши тестовый пост на тему: [любая тема]. Используй voice.md.</code>
+    </div>
+    <div style="margin-top:10px; display:flex; align-items:center; gap:10px;">
+      <span class="skill-chip">⚡ /voice-dna</span>
+      <span style="font-size:13px; color:var(--mut);">— скилл распаковки голоса из текстов</span>
+    </div>
+    <div class="pills">
+      <span class="pill">Скилл /voice-dna</span>
+      <span class="pill">voice.md</span>
+      <span class="pill">Агент Копирайтер</span>
+    </div>
+  </div>
+</div>
+
+</div>
+
+<!-- connector 3→4 -->
+<div class="conn">
+  <div class="conn-line"></div>
+  <div class="conn-dot">→</div>
+  <div class="conn-chip">Шаг 4 — транскрибатор</div>
+</div>
+
+<div class="steps">
+
+<!-- ════ ШАГ IV: ТРАНСКРИБАТОР ════ -->
+<div class="step">
+  <div class="hd">
+    <div class="num">IV</div>
+    <div>
+      <h2>Транскрибатор</h2>
+      <div class="sub">Подключение DeepGram — перевод аудио в текст</div>
+    </div>
+    <div class="step-time">~20 мин</div>
+  </div>
+  <div class="body">
+    <div class="io">
+      <div class="in">
+        <span class="k">Точка входа</span>
+        Голос зафиксирован. Менеджер пишет: <em>«Отлично! Теперь подключим инструмент, который переводит ваши слова в текст за секунды»</em>
+      </div>
+      <div class="out">
+        <span class="k">Точка выхода</span>
+        DeepGram подключён к Cursor. Клиент успешно транскрибировал первое аудио и получил .txt файл.
+      </div>
+    </div>
+    <div class="variants">
+      <div class="variant rec">
+        <h4>✅ DeepGram (рекомендуем)</h4>
+        <p>Клиент регистрируется и получает <strong>$200 бесплатно</strong> на транскрибацию. Работает прямо из Cursor — без внешних ботов.</p>
+      </div>
+      <div class="variant">
+        <h4>TG-бот @bykvitsa</h4>
+        <p>Отправить аудио/видео в бота — он вернёт .txt файл. Быстро, но без интеграции с Cursor.</p>
+      </div>
+    </div>
+    <div class="cli">
+      <b>Что делает клиент</b>
+      Вставить промпт ниже — офис проведёт по регистрации и подключению шаг за шагом.
+    </div>
+    <div class="prompt">
+      <span class="pk">Промпт в Cursor</span>
+      <code>Помоги мне подключиться к сервису Deepgram для транскрибации аудио. Дай мне ссылку на регистрацию и проведи меня по шагам подключения к Cursor.</code>
+    </div>
+    <div class="pills">
+      <span class="pill">DeepGram</span>
+      <span class="pill">TG-бот @bykvitsa</span>
+      <span class="pill">Cursor</span>
+    </div>
+  </div>
+</div>
+
+</div>
+
+<!-- connector 4→5 -->
+<div class="conn">
+  <div class="conn-line"></div>
+  <div class="conn-dot">→</div>
+  <div class="conn-chip">Шаг 5 — интерактивная методичка</div>
+</div>
+
+<div class="steps">
+
+<!-- ════ ШАГ V: МЕТОДИЧКА ════ -->
+<div class="step">
+  <div class="hd">
+    <div class="num">V</div>
+    <div>
+      <h2>Интерактивная методичка</h2>
+      <div class="sub">Транскрибация эфира → методичка в голосе эксперта на Vercel</div>
+    </div>
+    <div class="step-time">~30 мин</div>
+  </div>
+  <div class="body">
+    <div class="io">
+      <div class="in">
+        <span class="k">Точка входа</span>
+        Транскрибатор подключён. Менеджер пишет: <em>«Последний шаг! Загрузим ваши знания в офис. Нужна запись вашего эфира или обучения»</em>
+      </div>
+      <div class="out">
+        <span class="k">Точка выхода</span>
+        Интерактивная методичка в фирменном стиле и голосе эксперта задеплоена на Vercel.
+      </div>
+    </div>
+    <div class="cli">
+      <b>Что делает клиент</b>
+      Транскрибировать запись через DeepGram, скопировать текст и вставить в промпт. Ответить на вопросы агента и ждать результат.
+    </div>
+    <div class="prompt">
+      <span class="pk">Промпт в Cursor</span>
+      <code>Вот расшифровка моего эфира: [текст].
+
+Прежде чем начать — задай мне 2–3 вопроса, чтобы лучше понять мою аудиторию и главный результат этого обучения.
+
+После моих ответов создай интерактивную методичку:
+- Пиши в моём голосе (используй voice.md)
+- Используй фирменный стиль (используй брендбук)
+- Сделай её интерактивной: HTML-элементы, мини-тесты, геймификация
+- Не используй длинные тире (—), только короткие (-)
+- Цель: человек откроет и скажет «охренеть, как меня точно поняли»
+
+Задеплой на Vercel когда методичка будет готова.</code>
+    </div>
+    <div class="pills">
+      <span class="pill">DeepGram</span>
+      <span class="pill">voice.md</span>
+      <span class="pill">Брендбук</span>
+      <span class="pill">Vercel</span>
+    </div>
+  </div>
+</div>
+
+</div>
+
+<!-- connector 5→итог -->
+<div class="conn">
+  <div class="conn-line"></div>
+  <div class="conn-dot">✓</div>
+  <div class="conn-chip">Все этапы пройдены</div>
+</div>
+
+<!-- ════ ИТОГ ════ -->
+<div class="result">
+  <div class="result-badge">Программа завершена</div>
+  <h2><span class="grad">Цифровой офис запущен</span><br><span style="color:var(--ink)">и работает на вас.</span></h2>
+  <p class="result-lead">Пять этапов пройдено. Среда настроена, голос зафиксирован, сайт задеплоен, транскрибатор подключён — система готова к работе.</p>
+
+  <div class="res-grid">
+    <div class="res-card">
+      <span class="fi">💻</span>
+      <p>Рабочая среда<br><span style="color:#4b5563; font-size:11px;">Cursor + Claude Code</span></p>
+    </div>
+    <div class="res-card">
+      <span class="fi">🌐</span>
+      <p>Сайт в фирменном стиле<br><span style="color:#4b5563; font-size:11px;">Задеплоен на Vercel</span></p>
+    </div>
+    <div class="res-card">
+      <span class="fi">🎙️</span>
+      <p>Голос зафиксирован<br><span style="color:#4b5563; font-size:11px;">voice.md + брендбук</span></p>
+    </div>
+  </div>
+
+  <p style="font-size:14px; color:var(--mut); margin-bottom:18px;">
+    Если остались вопросы или нужна помощь — менеджер на связи.
+  </p>
+  <a class="cta" href="https://t.me/mmmoneytizator" target="_blank">Написать менеджеру @mmmoneytizator →</a>
+</div>
+
+<!-- ════ ИНФРАСТРУКТУРА ════ -->
+<div class="infra">
+  <h3>Инфраструктура</h3>
+  <table class="itable">
+    <tr>
+      <td>Установка</td>
+      <td>Cursor + Claude Code через Zoom Remote Control (не Claude Desktop)</td>
+    </tr>
+    <tr>
+      <td>Трекер этапов</td>
+      <td>Вайбкод-сайт <strong>vip-roadmap.vercel.app</strong></td>
+    </tr>
+    <tr>
+      <td>Транскрибатор</td>
+      <td>DeepGram ($200 бесплатно) или TG-бот @bykvitsa</td>
+    </tr>
+    <tr>
+      <td>Голос эксперта</td>
+      <td>Скилл /voice-dna + файл voice.md в офисе</td>
+    </tr>
+    <tr>
+      <td>Сообщество</td>
+      <td>VIVI VIP Community — еженедельные созвоны</td>
+    </tr>
+    <tr>
+      <td>Поддержка</td>
+      <td>Личный чат — индивидуальная поддержка на всех этапах</td>
+    </tr>
+  </table>
+</div>
+
+<p class="foot">VIVI VIP · Дорожная карта включения · v5 · 30.06.2026</p>
+
+</div><!-- /wrap -->
+</body>
+</html>
