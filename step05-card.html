@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<title>VIVI VIP · Step 05</title>
+<link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@900&family=Space+Mono:wght@700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root { --accent: #00C2A8; }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html, body { width: 1456px; height: 816px; overflow: hidden; }
+  body {
+    background: #0a0a0a; color: #fff;
+    font-family: 'Inter', sans-serif;
+    -webkit-font-smoothing: antialiased;
+    position: relative;
+  }
+  body::before {
+    content: ''; position: absolute; inset: 0;
+    background: radial-gradient(ellipse 800px 500px at 88% 10%, rgba(0,194,168,0.08) 0%, transparent 60%);
+    pointer-events: none;
+  }
+
+  .top-nav {
+    position: absolute; top: 0; left: 0; right: 0;
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 22px 36px; border-bottom: 1px solid rgba(255,255,255,.06);
+  }
+  .top-left { display: flex; align-items: center; gap: 10px; font-size: 11px; letter-spacing: .18em; text-transform: uppercase; color: rgba(255,255,255,.4); }
+  .top-dot { width: 8px; height: 8px; border-radius: 50%; background: var(--accent); }
+  .top-right { font-size: 11px; letter-spacing: .18em; color: rgba(255,255,255,.3); }
+
+  .bottom-nav {
+    position: absolute; bottom: 0; left: 0; right: 0;
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 18px 36px; border-top: 1px solid rgba(255,255,255,.06);
+  }
+  .bottom-left { font-size: 11px; letter-spacing: .18em; text-transform: uppercase; color: rgba(255,255,255,.3); }
+  .bottom-right { display: flex; gap: 40px; font-size: 10px; letter-spacing: .18em; text-transform: uppercase; color: rgba(255,255,255,.3); }
+  .bottom-right .acc { color: var(--accent); }
+
+  .divider { position: absolute; left: 790px; top: 64px; bottom: 54px; width: 1px; background: rgba(255,255,255,.07); }
+
+  .right-labels {
+    position: absolute; top: 76px; left: 818px; right: 36px;
+    display: flex; justify-content: space-between;
+    font-size: 10px; letter-spacing: .22em; text-transform: uppercase; color: rgba(255,255,255,.28);
+  }
+
+  .left {
+    position: absolute; top: 64px; bottom: 54px;
+    left: 36px; width: 740px;
+    display: flex; flex-direction: column; justify-content: center;
+  }
+  .step-label { font-size: 11px; letter-spacing: .22em; text-transform: uppercase; color: rgba(255,255,255,.28); margin-bottom: 22px; }
+  .step-label .n { color: var(--accent); }
+
+  .headline { font-family: 'Unbounded', sans-serif; font-weight: 900; font-size: 104px; line-height: .9; letter-spacing: -.02em; text-transform: uppercase; margin-bottom: 34px; }
+  .hl-w { color: #fff; display: block; }
+  .hl-a { color: var(--accent); display: flex; align-items: center; gap: 16px; }
+  .diamond { font-size: 56px; line-height: 1; }
+
+  .desc { font-size: 17px; line-height: 1.58; color: rgba(255,255,255,.65); max-width: 600px; margin-bottom: 30px; }
+  .desc .hi { color: var(--accent); font-weight: 600; }
+  .tech { font-family: 'Space Mono', monospace; font-size: 12px; letter-spacing: .1em; color: rgba(255,255,255,.3); }
+
+  .right {
+    position: absolute; top: 108px; bottom: 66px;
+    left: 818px; right: 36px;
+    display: flex; flex-direction: column; gap: 10px; justify-content: center;
+  }
+
+  /* DIRECTOR CHAT */
+  .dir-card { background: rgba(255,255,255,.03); border: 1px solid rgba(255,255,255,.07); border-radius: 14px; overflow: hidden; }
+  .dir-head { background: rgba(0,194,168,.1); border-bottom: 1px solid rgba(0,194,168,.18); padding: 10px 14px; display: flex; align-items: center; justify-content: space-between; }
+  .dir-head-left { display: flex; align-items: center; gap: 10px; }
+  .dir-icon { width: 30px; height: 30px; border-radius: 50%; background: var(--accent); display: flex; align-items: center; justify-content: center; font-size: 13px; flex-shrink: 0; }
+  .dir-name { font-size: 13px; font-weight: 600; }
+  .dir-status { font-size: 10px; color: var(--accent); letter-spacing: .04em; margin-top: 1px; }
+  .dir-time { font-family: 'Space Mono', monospace; font-size: 12px; color: rgba(255,255,255,.3); }
+  .dir-body { padding: 10px 12px; display: flex; flex-direction: column; gap: 7px; }
+  .chat-msg { padding: 7px 11px; border-radius: 10px; font-size: 12px; line-height: 1.45; max-width: 88%; }
+  .chat-msg.u { background: rgba(255,255,255,.05); border: 1px solid rgba(255,255,255,.08); color: rgba(255,255,255,.65); align-self: flex-end; border-radius: 10px 10px 3px 10px; }
+  .chat-msg.d { background: rgba(0,194,168,.12); border: 1px solid rgba(0,194,168,.2); color: rgba(255,255,255,.82); align-self: flex-start; border-radius: 10px 10px 10px 3px; }
+  .dir-sender { font-size: 10px; color: var(--accent); font-weight: 700; margin-bottom: 3px; letter-spacing: .05em; }
+
+  /* PLAN CARD */
+  .plan-card { background: rgba(255,255,255,.025); border: 1px solid rgba(255,255,255,.07); border-radius: 14px; padding: 12px 14px; display: flex; flex-direction: column; gap: 7px; }
+  .plan-title { font-size: 10px; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; color: var(--accent); margin-bottom: 3px; }
+  .plan-item { display: flex; align-items: center; gap: 10px; padding: 5px 8px; border-radius: 7px; background: rgba(255,255,255,.02); border: 1px solid rgba(255,255,255,.04); }
+  .plan-num { width: 18px; height: 18px; border-radius: 5px; background: rgba(0,194,168,.2); display: flex; align-items: center; justify-content: center; font-size: 10px; font-weight: 700; color: var(--accent); flex-shrink: 0; }
+  .plan-text { font-size: 11px; color: rgba(255,255,255,.55); }
+  .plan-badge { margin-left: auto; font-size: 9px; font-weight: 700; letter-spacing: .05em; text-transform: uppercase; padding: 2px 6px; border-radius: 4px; flex-shrink: 0; }
+  .plan-badge.hot { background: rgba(255,61,181,.15); color: #ff3db5; }
+  .plan-badge.ok  { background: rgba(0,194,168,.15); color: var(--accent); }
+  .plan-badge.del { background: rgba(255,255,255,.07); color: rgba(255,255,255,.3); }
+
+  .right-bot { position: absolute; bottom: 66px; left: 818px; right: 36px; display: flex; justify-content: space-between; font-size: 10px; letter-spacing: .18em; text-transform: uppercase; color: rgba(255,255,255,.22); }
+  .right-bot .acc { color: var(--accent); }
+</style>
+</head>
+<body>
+
+<div class="top-nav">
+  <div class="top-left"><div class="top-dot"></div>VIVI VIP · STEP 05</div>
+  <div class="top-right">05 / 05</div>
+</div>
+
+<div class="bottom-nav">
+  <div class="bottom-left">S5 · PLAN</div>
+  <div class="bottom-right">
+    <span>TIER · VIP</span>
+    <span>REF · VIVI/05</span>
+    <span class="acc">ДЕНЬ СПЛАНИРОВАН</span>
+  </div>
+</div>
+
+<div class="divider"></div>
+
+<div class="right-labels">
+  <span>ДИРЕКТОР</span>
+  <span>BLUEPRINT</span>
+</div>
+
+<div class="left">
+  <div class="step-label">ШАГ <span class="n">№05</span> · ПЛАНИРОВАНИЕ</div>
+  <div class="headline">
+    <span class="hl-w">УТРО</span>
+    <span class="hl-a">МЕНЯЕТ <span class="diamond">♦</span></span>
+    <span class="hl-w">ВСЁ</span>
+  </div>
+  <div class="desc">
+    5 минут с Директором — и ты знаешь <span class="hi">что сделать первым</span>,<br>что делегировать офису, что отложить. День начинается с плана, а не с хаоса.
+  </div>
+  <div class="tech">→ Директор · Утренние сессии · Notion · 30 минут</div>
+</div>
+
+<div class="right">
+  <div class="dir-card">
+    <div class="dir-head">
+      <div class="dir-head-left">
+        <div class="dir-icon">✦</div>
+        <div>
+          <div class="dir-name">Директор · Утренняя сессия</div>
+          <div class="dir-status">● онлайн · видит твои задачи</div>
+        </div>
+      </div>
+      <div class="dir-time">09:00</div>
+    </div>
+    <div class="dir-body">
+      <div class="chat-msg u">Доброе утро</div>
+      <div class="chat-msg d">
+        <div class="dir-sender">✦ ДИРЕКТОР</div>
+        Доброе утро. Вижу 4 задачи на сегодня. Вот твой план:
+      </div>
+    </div>
+  </div>
+
+  <div class="plan-card">
+    <div class="plan-title">План на сегодня</div>
+    <div class="plan-item">
+      <div class="plan-num">1</div>
+      <div class="plan-text">Записать голосовое для поста</div>
+      <span class="plan-badge hot">Горит</span>
+    </div>
+    <div class="plan-item">
+      <div class="plan-num">2</div>
+      <div class="plan-text">Согласовать дизайн обложки</div>
+      <span class="plan-badge ok">Важно</span>
+    </div>
+    <div class="plan-item">
+      <div class="plan-num">3</div>
+      <div class="plan-text">Контент-план на следующую неделю</div>
+      <span class="plan-badge del">Делегировать</span>
+    </div>
+  </div>
+</div>
+
+<div class="right-bot">
+  <span>DIRECTOR · READY</span>
+  <span class="acc">MORNING SESSION · ACTIVE</span>
+</div>
+
+</body>
+</html>
