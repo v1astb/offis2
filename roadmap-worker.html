@@ -1,0 +1,1123 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>VIVI — Техническая карта рабочего [КОНФИДЕНЦИАЛЬНО]</title>
+<style>
+  :root {
+    --bg: #100d0f;
+    --card: #1c1519;
+    --line: #302030;
+    --ink: #d8ccd2;
+    --mut: #8a7882;
+    --red:    #c03258;
+    --rose:   #b05070;
+    --beet:   #8a1e4a;
+    --violet: #6e2060;
+    --dark-red: #5a1430;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    background: radial-gradient(900px 500px at 80% -10%, #1c1018 0%, var(--bg) 55%);
+    color: var(--ink);
+    font: 16px/1.6 -apple-system, "Segoe UI", Roboto, sans-serif;
+    padding: 0 0 80px;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .wrap { max-width: 1080px; margin: 0 auto; padding: 0 20px; }
+
+  /* ════ CONFIDENTIAL BANNER ════ */
+  .conf-banner {
+    background: linear-gradient(90deg, #3a0e20, var(--beet), #3a0e20);
+    padding: 10px 20px;
+    text-align: center;
+    position: sticky; top: 0; z-index: 100;
+    border-bottom: 1px solid rgba(255,36,72,0.4);
+  }
+  .conf-banner span {
+    font-size: 11px; letter-spacing: .3em; text-transform: uppercase;
+    font-weight: 800; color: rgba(255,255,255,0.9);
+  }
+  .conf-banner span::before { content: '🔒 '; }
+
+  /* ════ HERO ════ */
+  .hero { padding: 48px 20px 36px; }
+  .hero-wrap { max-width: 1080px; margin: 0 auto; }
+  .tag {
+    display: inline-block;
+    font-size: 12px; letter-spacing: .18em; text-transform: uppercase;
+    color: var(--rose); border: 1px solid rgba(255,92,138,0.5);
+    border-radius: 999px; padding: 6px 14px; margin-bottom: 18px;
+  }
+  h1 {
+    font-size: 38px; line-height: 1.1; font-weight: 800;
+    letter-spacing: -.02em; margin-bottom: 14px;
+  }
+  h1 .grad {
+    background: linear-gradient(92deg, var(--red), var(--rose) 50%, var(--violet));
+    -webkit-background-clip: text; background-clip: text; color: transparent;
+  }
+  .lead { color: var(--mut); max-width: 700px; margin-bottom: 14px; font-size: 15px; }
+
+  /* ════ PROGRESS ════ */
+  .progress-wrap { max-width: 1080px; margin: 0 auto 36px; padding: 0 20px; }
+  .progress-track {
+    display: flex; align-items: center; justify-content: space-between; position: relative;
+  }
+  .progress-track::before {
+    content: ''; position: absolute;
+    top: 17px; left: 18px; right: 18px; height: 2px; background: var(--line);
+  }
+  .prog-step { display: flex; flex-direction: column; align-items: center; gap: 6px; z-index: 1; }
+  .prog-dot {
+    width: 34px; height: 34px; border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 13px; font-weight: 800; color: #fff;
+  }
+  .pd-pre { background: linear-gradient(135deg, var(--dark-red), var(--beet)); box-shadow: 0 0 12px rgba(192,24,92,0.5); }
+  .pd-1   { background: linear-gradient(135deg, var(--red), var(--beet)); box-shadow: 0 0 12px rgba(255,36,72,0.5); }
+  .pd-2   { background: linear-gradient(135deg, var(--beet), var(--violet)); box-shadow: 0 0 12px rgba(192,24,92,0.4); }
+  .pd-3   { background: linear-gradient(135deg, var(--violet), var(--rose)); box-shadow: 0 0 12px rgba(155,32,128,0.4); }
+  .pd-4   { background: linear-gradient(135deg, var(--rose), var(--red)); box-shadow: 0 0 12px rgba(255,92,138,0.4); }
+  .pd-5   { background: linear-gradient(135deg, var(--red), var(--violet)); box-shadow: 0 0 12px rgba(255,36,72,0.4); }
+  .pd-fin { background: linear-gradient(135deg, var(--beet), var(--rose)); box-shadow: 0 0 14px rgba(192,24,92,0.5); }
+  .prog-label { font-size: 10px; color: var(--mut); text-align: center; max-width: 60px; line-height: 1.3; }
+
+  /* ════ STEP SEPARATOR ════ */
+  .step-sep {
+    display: flex; align-items: center; justify-content: center; padding: 10px 0;
+  }
+  .step-sep-label {
+    font-size: 11px; letter-spacing: .16em; text-transform: uppercase;
+    background: linear-gradient(90deg, var(--red), var(--rose), var(--violet));
+    -webkit-background-clip: text; background-clip: text; color: transparent;
+    opacity: 0.55; font-weight: 600;
+  }
+
+  /* ════ PRE-STEP (подготовка) ════ */
+  .pre-step {
+    background: var(--card);
+    border: 1px solid rgba(192,24,92,0.4);
+    border-radius: 20px;
+    padding: 26px 28px;
+    position: relative; overflow: hidden;
+    margin-bottom: 0;
+  }
+  .pre-step::before {
+    content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px;
+    background: linear-gradient(90deg, var(--red), var(--beet), var(--violet));
+  }
+  .pre-step-label {
+    font-size: 11px; letter-spacing: .15em; text-transform: uppercase;
+    color: var(--rose); margin-bottom: 12px; display: block;
+  }
+  .pre-step h2 { font-size: 22px; font-weight: 800; margin-bottom: 8px; }
+  .pre-step h2 .grad { background: linear-gradient(92deg, var(--red), var(--rose) 50%, var(--violet)); -webkit-background-clip:text; background-clip:text; color:transparent; }
+  .pre-step p { color: var(--mut); font-size: 14px; margin-bottom: 16px; }
+
+  /* checklist */
+  .checklist { list-style: none; }
+  .checklist li {
+    font-size: 14px; color: var(--mut); padding: 5px 0;
+    display: flex; align-items: flex-start; gap: 10px;
+  }
+  .checklist li::before {
+    content: '□'; color: var(--rose); font-size: 16px; flex-shrink: 0; line-height: 1.4;
+  }
+  .checklist li strong { color: var(--ink); }
+
+  /* worker note */
+  .wnote {
+    background: rgba(255,36,72,0.07);
+    border: 1px solid rgba(255,36,72,0.25);
+    border-left: 3px solid var(--red);
+    border-radius: 0 10px 10px 0;
+    padding: 12px 16px;
+    font-size: 13px; color: var(--mut); line-height: 1.6;
+    margin-top: 14px;
+  }
+  .wnote strong { color: var(--rose); }
+
+  /* ════ STEP CARD ════ */
+  .steps { display: flex; flex-direction: column; gap: 0; }
+  .step {
+    background: var(--card);
+    border: 1px solid var(--line);
+    border-radius: 20px;
+    overflow: hidden;
+    position: relative;
+  }
+  .step::before {
+    content: "";
+    position: absolute; left: 0; top: 0; bottom: 0; width: 4px;
+    background: linear-gradient(var(--red), var(--beet));
+  }
+
+  .step .hd {
+    display: flex; align-items: center; gap: 16px;
+    padding: 22px 26px 10px;
+  }
+  .num {
+    flex: 0 0 46px; height: 46px; border-radius: 14px;
+    display: grid; place-items: center;
+    font-weight: 800; font-size: 20px;
+    background: linear-gradient(135deg, var(--red), var(--beet));
+    color: #fff;
+  }
+  .hd h2 { font-size: 20px; font-weight: 700; }
+  .hd .sub { color: var(--mut); font-size: 13px; }
+  .step-time {
+    margin-left: auto; flex-shrink: 0;
+    font-size: 12px; font-weight: 700;
+    color: var(--rose); border: 1px solid rgba(255,92,138,0.3);
+    background: rgba(255,92,138,0.08);
+    border-radius: 999px; padding: 3px 11px;
+  }
+
+  .body { padding: 6px 26px 24px; }
+
+  /* io */
+  .io { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin: 12px 0; }
+  .io > div { border-radius: 12px; padding: 12px 14px; font-size: 14px; }
+  .in  { background: rgba(192,24,92,.10); border: 1px solid rgba(192,24,92,.35); }
+  .out { background: rgba(155,32,128,.08); border: 1px solid rgba(155,32,128,.32); }
+  .io .k {
+    font-size: 11px; letter-spacing: .12em; text-transform: uppercase;
+    color: var(--mut); display: block; margin-bottom: 3px;
+  }
+  .out .k { color: var(--violet); }
+  .in  .k { color: var(--rose); }
+
+  /* os-tabs */
+  .os-tabs { display: flex; gap: 8px; margin: 16px 0 0; }
+  .os-tab {
+    flex: 1; padding: 10px 16px;
+    background: #100a0d; border: 1px solid var(--line);
+    border-radius: 10px 10px 0 0; cursor: pointer;
+    font-size: 13px; font-weight: 700; color: var(--mut);
+    text-align: center; transition: all 0.2s; user-select: none;
+  }
+  .os-tab.active-tab { background: var(--card); border-bottom-color: var(--card); color: var(--ink); border-top: 2px solid var(--rose); }
+  .os-content {
+    background: var(--card); border: 1px solid var(--line);
+    border-radius: 0 0 12px 12px; padding: 18px 20px;
+    display: none; margin-top: -1px;
+  }
+  .os-content.active-content { display: block; }
+
+  /* mini-steps */
+  .mini-steps { list-style: none; counter-reset: ms; }
+  .mini-steps li {
+    counter-increment: ms;
+    display: flex; gap: 14px;
+    padding: 10px 0;
+    border-bottom: 1px solid rgba(255,255,255,0.04);
+    font-size: 13px; color: var(--mut); line-height: 1.6;
+  }
+  .mini-steps li:last-child { border-bottom: none; }
+  .mini-steps li::before {
+    content: counter(ms);
+    flex-shrink: 0;
+    width: 24px; height: 24px; border-radius: 6px;
+    background: linear-gradient(135deg, var(--red), var(--beet));
+    color: #fff; font-size: 11px; font-weight: 800;
+    display: flex; align-items: center; justify-content: center;
+    margin-top: 2px;
+  }
+  .mini-steps li strong { color: var(--ink); }
+  .mini-steps li a { color: var(--rose); text-decoration: none; }
+  .mini-steps li a:hover { text-decoration: underline; }
+
+  /* code block */
+  .code-block {
+    background: #080408; border: 1px solid #2a1020;
+    border-radius: 8px; padding: 10px 14px; margin: 8px 0;
+    font-family: 'SF Mono', ui-monospace, monospace;
+    font-size: 12px; color: var(--rose); white-space: pre-wrap; word-break: break-word;
+  }
+
+  /* accordion (troubleshoot) */
+  .accordion { margin-top: 14px; }
+  .acc-trigger {
+    width: 100%; text-align: left;
+    background: rgba(255,36,72,0.05); border: 1px solid rgba(255,36,72,0.18);
+    border-radius: 10px; padding: 11px 16px;
+    cursor: pointer; display: flex; align-items: center; justify-content: space-between;
+    font-size: 13px; color: var(--mut); font-weight: 600;
+    transition: background 0.2s; user-select: none;
+  }
+  .acc-trigger:hover { background: rgba(255,36,72,0.1); }
+  .acc-icon { font-size: 18px; transition: transform 0.25s; line-height: 1; }
+  .acc-trigger.open .acc-icon { transform: rotate(45deg); }
+  .acc-body {
+    display: none;
+    background: #100a0d; border: 1px solid rgba(255,36,72,0.15);
+    border-top: none; border-radius: 0 0 10px 10px;
+    padding: 14px 16px;
+  }
+  .acc-body.open { display: block; }
+  .problem { margin-bottom: 14px; }
+  .problem:last-child { margin-bottom: 0; }
+  .problem-q { font-size: 13px; font-weight: 700; color: var(--rose); margin-bottom: 5px; }
+  .problem-a { font-size: 13px; color: var(--mut); line-height: 1.6; }
+
+  /* pills */
+  .pills { margin-top: 12px; }
+  .pill {
+    display: inline-block;
+    font-size: 11px; color: var(--rose); border: 1px solid rgba(255,92,138,0.35);
+    border-radius: 999px; padding: 2px 9px; margin: 2px 4px 0 0;
+  }
+
+  /* section title inside body */
+  .section-title {
+    font-size: 11px; letter-spacing: .15em; text-transform: uppercase;
+    color: var(--rose); margin: 16px 0 8px; display: block;
+  }
+
+  /* ════ RESULT ════ */
+  .result-block {
+    background: var(--card);
+    border: 1px solid rgba(192,24,92,0.35);
+    border-radius: 20px;
+    padding: 36px 30px;
+    text-align: center;
+    position: relative; overflow: hidden; margin-top: 0;
+  }
+  .result-block::before {
+    content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px;
+    background: linear-gradient(90deg, var(--red), var(--beet), var(--violet));
+  }
+  .result-badge {
+    display: inline-block;
+    font-size: 11px; letter-spacing: .15em; text-transform: uppercase;
+    color: var(--rose); border: 1px solid rgba(255,92,138,0.4);
+    border-radius: 999px; padding: 5px 14px; margin-bottom: 16px;
+  }
+  .result-block h2 { font-size: 26px; font-weight: 800; margin-bottom: 10px; line-height: 1.2; }
+  .result-lead { color: var(--mut); font-size: 14px; max-width: 560px; margin: 0 auto 24px; }
+  .res-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin-bottom: 16px; }
+  .res-card { background: #100a0d; border: 1px solid var(--line); border-radius: 14px; padding: 18px 14px; text-align: center; }
+  .res-card .fi { font-size: 26px; margin-bottom: 8px; display: block; }
+  .res-card p { font-size: 13px; color: var(--mut); line-height: 1.45; }
+
+  /* infra table */
+  .infra { margin-top: 36px; }
+  .infra h3 { font-size: 13px; letter-spacing: .14em; text-transform: uppercase; color: var(--mut); margin-bottom: 14px; }
+  .itable { width: 100%; border-collapse: collapse; background: var(--card); border: 1px solid var(--line); border-radius: 16px; overflow: hidden; }
+  .itable td { padding: 13px 18px; border-bottom: 1px solid var(--line); font-size: 14px; vertical-align: top; }
+  .itable tr:last-child td { border-bottom: none; }
+  .itable td:first-child { color: var(--mut); width: 220px; }
+
+  .foot { margin-top: 40px; color: var(--mut); font-size: 13px; text-align: center; }
+
+  @media (max-width: 760px) {
+    h1 { font-size: 28px; }
+    .io { grid-template-columns: 1fr; }
+    .prog-label { display: none; }
+    .body, .hd { padding-left: 16px; padding-right: 16px; }
+    .res-grid { grid-template-columns: 1fr; }
+    .result-block { padding: 24px 18px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- CONFIDENTIAL BANNER -->
+<div class="conf-banner">
+  <span>Только для внутреннего использования — не передавать клиентам</span>
+</div>
+
+<!-- ════ HERO ════ -->
+<div class="hero">
+  <div class="hero-wrap">
+    <span class="tag">VIVI · Техническая карта рабочего</span>
+    <h1>Дорожная карта <span class="grad">включения клиента</span></h1>
+    <p class="lead">Пошаговый протокол для специалиста VIVI. Клиент приходит с пустым ноутбуком — вы уходите, когда его офис работает. Каждый шаг: вход, мини-шаги для Windows и Mac, выход, частые проблемы.</p>
+  </div>
+</div>
+
+<!-- ════ ПРОГРЕСС ════ -->
+<div class="progress-wrap">
+  <div class="progress-track">
+    <div class="prog-step">
+      <div class="prog-dot pd-pre">0</div>
+      <div class="prog-label">Подготовка</div>
+    </div>
+    <div class="prog-step">
+      <div class="prog-dot pd-1">I</div>
+      <div class="prog-label">VPN</div>
+    </div>
+    <div class="prog-step">
+      <div class="prog-dot pd-2">II</div>
+      <div class="prog-label">GitHub + Cursor</div>
+    </div>
+    <div class="prog-step">
+      <div class="prog-dot pd-3">III</div>
+      <div class="prog-label">Claude Code</div>
+    </div>
+    <div class="prog-step">
+      <div class="prog-dot pd-4">IV</div>
+      <div class="prog-label">Голос + Дизайн</div>
+    </div>
+    <div class="prog-step">
+      <div class="prog-dot pd-5">V</div>
+      <div class="prog-label">DeepGram</div>
+    </div>
+    <div class="prog-step">
+      <div class="prog-dot pd-fin">✓</div>
+      <div class="prog-label">Финал</div>
+    </div>
+  </div>
+</div>
+
+<div class="wrap">
+
+<!-- ════ ШАГ 0: ПОДГОТОВКА ════ -->
+<div class="pre-step">
+  <span class="pre-step-label">Шаг 0 · Подготовка специалиста</span>
+  <h2>Перед визитом к клиенту — <span class="grad">обязательно проверить</span></h2>
+  <p>Эти пункты нужно подготовить ДО встречи с клиентом. Не импровизируй на месте — всё должно быть готово заранее.</p>
+
+  <ul class="checklist">
+    <li><strong>Zoom установлен</strong> и Remote Control включён в настройках безопасности вашего аккаунта Zoom</li>
+    <li><strong>У вас есть доступ</strong> к репозиторию VIVI на GitHub (проверь что можешь его форкнуть/клонировать)</li>
+    <li><strong>Тестовый офис работает</strong> — убедись что всё актуально до выезда к клиенту</li>
+    <li><strong>Zoom-созвон запланирован</strong> — клиент знает время и уже в нём</li>
+    <li><strong>Ссылка на репозиторий VIVI</strong> готова, чтобы скинуть клиенту в чат</li>
+  </ul>
+
+  <div class="wnote">
+    <strong>Комментарий для рабочего:</strong> Представься клиенту, кратко объясни что сейчас будет происходить: «Мы вместе за 3–4 часа настроим ваш персональный цифровой офис. Я буду вести вас шаг за шагом — вам ничего не нужно знать заранее.» Убедись что клиент комфортно расположился, есть доступ к интернету и зарядка ноутбука.
+  </div>
+</div>
+
+<!-- SEP -->
+<div class="step-sep"><span class="step-sep-label">Шаг I — Установка VPN</span></div>
+
+<div class="steps">
+<!-- ════ ШАГ I: VPN ════ -->
+<div class="step">
+  <div class="hd">
+    <div class="num">I</div>
+    <div>
+      <h2>Установка VPN</h2>
+      <div class="sub">Amnezia VPN (основной) + NordVPN (резервный)</div>
+    </div>
+    <div class="step-time">~20 мин</div>
+  </div>
+  <div class="body">
+    <div class="io">
+      <div class="in">
+        <span class="k">Точка входа</span>
+        Пустой ноутбук. VPN отсутствует. Claude и Anthropic недоступны без VPN из ряда регионов.
+      </div>
+      <div class="out">
+        <span class="k">Точка выхода</span>
+        VPN установлен, подключён к серверу США. Клиент может зайти на claude.ai и видит страницу регистрации.
+      </div>
+    </div>
+
+    <div class="wnote">
+      <strong>Комментарий для рабочего:</strong> Объясни клиенту просто: «VPN — это как другой паспорт для вашего интернета. Claude работает только из определённых стран, поэтому нам нужно сделать вид, что мы в США. Установим это один раз — и всё.»
+    </div>
+
+    <!-- OS TABS -->
+    <div class="os-tabs">
+      <div class="os-tab active-tab" onclick="switchTab(this, 'vpn-win')">🪟 Windows</div>
+      <div class="os-tab" onclick="switchTab(this, 'vpn-mac')">🍎 Mac</div>
+    </div>
+
+    <div id="vpn-win" class="os-content active-content">
+      <span class="section-title">Основной вариант — Amnezia VPN (бесплатно)</span>
+      <ol class="mini-steps">
+        <li>Открой браузер (Chrome или Edge) и перейди на <a href="https://amnezia.org/downloads" target="_blank">amnezia.org/downloads</a></li>
+        <li>Нажми кнопку <strong>«Скачать для Windows»</strong> — загрузится файл AmneziaVPN-installer.exe</li>
+        <li>Найди файл в папке «Загрузки», двойной клик → появится окно установщика</li>
+        <li>Нажми <strong>«Установить»</strong>, жди завершения (30–60 секунд)</li>
+        <li>Запусти Amnezia VPN из меню «Пуск»</li>
+        <li>При первом запуске выбери <strong>«Подключиться через публичный сервер»</strong> (опция без своего сервера)</li>
+        <li>Выбери сервер с локацией <strong>USA / United States</strong></li>
+        <li>Нажми <strong>«Подключиться»</strong> — индикатор станет зелёным</li>
+        <li>Проверка: открой <a href="https://claude.ai" target="_blank">claude.ai</a> в браузере — должна открыться страница регистрации ✅</li>
+      </ol>
+
+      <span class="section-title">Резервный вариант — NordVPN (платный, если Amnezia не работает)</span>
+      <ol class="mini-steps">
+        <li>Перейди на <a href="https://nordvpn.com" target="_blank">nordvpn.com</a> → нажми «Get NordVPN»</li>
+        <li>Выбери план <strong>Basic</strong> (от $3–4 в месяц), оплати картой</li>
+        <li>Скачай NordVPN для Windows с сайта → запусти NordVPNSetup.exe</li>
+        <li>Нажми «Install» → жди завершения → запусти приложение</li>
+        <li>Войди в аккаунт — браузер откроется для входа, введи email и пароль</li>
+        <li>В поиске введи <strong>«United States»</strong>, выбери любой сервер → нажми <strong>«Connect»</strong></li>
+        <li>Индикатор стал зелёным → проверь claude.ai в браузере ✅</li>
+      </ol>
+    </div>
+
+    <div id="vpn-mac" class="os-content">
+      <span class="section-title">Основной вариант — Amnezia VPN (бесплатно)</span>
+      <ol class="mini-steps">
+        <li>Открой Safari или Chrome, перейди на <a href="https://amnezia.org/downloads" target="_blank">amnezia.org/downloads</a></li>
+        <li>Нажми <strong>«Скачать для macOS»</strong> — скачается файл .dmg или .pkg</li>
+        <li><strong>Если .dmg:</strong> открой файл → перетащи иконку Amnezia в папку «Приложения»<br><strong>Если .pkg:</strong> открой файл → следуй инструкции установщика, нажимай «Продолжить»</li>
+        <li>Открой «Приложения» → найди Amnezia VPN → запусти</li>
+        <li>macOS может показать предупреждение «Не удаётся проверить разработчика» → открой «Системные настройки» → «Конфиденциальность и безопасность» → нажми <strong>«Всё равно открыть»</strong></li>
+        <li>Выбери <strong>«Подключиться через публичный сервер»</strong></li>
+        <li>Выбери сервер <strong>USA</strong> → нажми <strong>«Подключиться»</strong></li>
+        <li>macOS попросит разрешение на добавление VPN-конфигурации → введи пароль Mac → нажми «Разрешить»</li>
+        <li>Проверка: открой <a href="https://claude.ai" target="_blank">claude.ai</a> → должна открыться страница регистрации ✅</li>
+      </ol>
+
+      <span class="section-title">Резервный вариант — NordVPN (если Amnezia не работает)</span>
+      <ol class="mini-steps">
+        <li>Перейди на <a href="https://nordvpn.com" target="_blank">nordvpn.com</a> → выбери план Basic → оплати</li>
+        <li>Скачай NordVPN для macOS → открой .pkg → следуй инструкции</li>
+        <li>Запусти NordVPN из «Приложений» → войди в аккаунт через браузер</li>
+        <li>В поиске введи <strong>«United States»</strong> → нажми <strong>«Connect»</strong></li>
+        <li>Разреши добавление VPN-конфигурации (введи пароль Mac)</li>
+        <li>Проверка: claude.ai открывается ✅</li>
+      </ol>
+    </div>
+
+    <div class="accordion">
+      <button class="acc-trigger" onclick="toggleAcc(this)">
+        ⚠️ Частые проблемы с VPN <span class="acc-icon">+</span>
+      </button>
+      <div class="acc-body">
+        <div class="problem">
+          <div class="problem-q">VPN подключён, но claude.ai всё равно не открывается</div>
+          <div class="problem-a">Попробуй сменить сервер — выбери другой американский. Если не помогает: очисти кэш браузера (Ctrl+Shift+Del / Cmd+Shift+Del) → закрой и снова открой вкладку.</div>
+        </div>
+        <div class="problem">
+          <div class="problem-q">Amnezia не устанавливается или вылетает</div>
+          <div class="problem-a">Скачай вручную нужную версию с <a href="https://github.com/amnezia-vpn/amnezia-client/releases" target="_blank">github.com/amnezia-vpn/amnezia-client/releases</a>. Для Windows выбирай файл с именем AmneziaVPN-x.x.x-windows.exe. Для Mac — .dmg или .pkg в зависимости от версии macOS.</div>
+        </div>
+        <div class="problem">
+          <div class="problem-q">На Mac появляется «приложение повреждено»</div>
+          <div class="problem-a">Открой «Системные настройки» → «Конфиденциальность и безопасность» → пролистай вниз до раздела «Безопасность» → нажми «Всё равно открыть» рядом с Amnezia VPN.</div>
+        </div>
+        <div class="problem">
+          <div class="problem-q">Interner работает медленно через VPN</div>
+          <div class="problem-a">Смени сервер на более близкий по географии США — выбери East Coast (New York, Washington DC). Также попробуй сменить протокол в настройках Amnezia: AmneziaWG → WireGuard.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+
+<!-- SEP -->
+<div class="step-sep"><span class="step-sep-label">Шаг II — GitHub + Cursor</span></div>
+
+<div class="steps">
+<!-- ════ ШАГ II: GitHub + Cursor ════ -->
+<div class="step">
+  <div class="hd">
+    <div class="num">II</div>
+    <div>
+      <h2>GitHub + Cursor</h2>
+      <div class="sub">Регистрация в GitHub → установка Cursor IDE</div>
+    </div>
+    <div class="step-time">~30 мин</div>
+  </div>
+  <div class="body">
+    <div class="io">
+      <div class="in">
+        <span class="k">Точка входа</span>
+        VPN работает. Нет аккаунта GitHub, нет Cursor. Клиент никогда не слышал о репозиториях.
+      </div>
+      <div class="out">
+        <span class="k">Точка выхода</span>
+        GitHub-аккаунт создан и подтверждён. Cursor установлен. Репозиторий VIVI добавлен в аккаунт клиента.
+      </div>
+    </div>
+
+    <div class="wnote">
+      <strong>Комментарий для рабочего:</strong> Объясни GitHub просто: «Это как облачное хранилище, только для кода. Там хранится весь ваш VIVI-офис. Когда мы его подключим — он всегда будет у вас, даже если потеряете ноутбук.» Cursor объясни как: «Это программа, через которую вы будете разговаривать со своим офисом — как мессенджер, только для ИИ.»
+    </div>
+
+    <span class="section-title">Часть A — Регистрация GitHub (одинаково для Windows и Mac)</span>
+
+    <ol class="mini-steps">
+      <li>Убедись что VPN включён → открой <a href="https://github.com" target="_blank">github.com</a></li>
+      <li>Нажми кнопку <strong>«Sign up»</strong> (правый верхний угол)</li>
+      <li>Введи email клиента → придумай пароль (мин. 8 символов, с цифрами) → придумай username (имя латиницей, без пробелов)</li>
+      <li>Пройди капчу (нажми «Start puzzle», реши головоломку)</li>
+      <li>Нажми <strong>«Create account»</strong></li>
+      <li>GitHub пришлёт код на email → открой почту → скопируй 6-значный код → вставь на сайте</li>
+      <li>На вопросы о команде отвечай <strong>«Just me»</strong>, на вопросы про использование — пропускай</li>
+      <li>Аккаунт создан ✅ Скажи клиенту сохранить логин и пароль</li>
+      <li>Скинь клиенту в чат ссылку на репозиторий VIVI → нажми <strong>«Fork»</strong> → <strong>«Create fork»</strong> — репозиторий скопирован в аккаунт клиента ✅</li>
+    </ol>
+
+    <!-- OS TABS -->
+    <div class="os-tabs">
+      <div class="os-tab active-tab" onclick="switchTab(this, 'cursor-win')">🪟 Cursor на Windows</div>
+      <div class="os-tab" onclick="switchTab(this, 'cursor-mac')">🍎 Cursor на Mac</div>
+    </div>
+
+    <div id="cursor-win" class="os-content active-content">
+      <span class="section-title">Установка Cursor на Windows</span>
+      <ol class="mini-steps">
+        <li>Перейди на <a href="https://cursor.com" target="_blank">cursor.com</a> → нажми <strong>«Download for Windows»</strong></li>
+        <li>Запусти скачанный файл CursorSetup.exe → нажми «Да» на запрос разрешений UAC</li>
+        <li>Следуй инструкции установщика → нажимай «Next» → «Install» → «Finish»</li>
+        <li>Cursor запустится автоматически</li>
+        <li>На экране приветствия выбери тему (Light или Dark — по вкусу клиента)</li>
+        <li>Cursor предложит войти через GitHub → нажми <strong>«Sign in with GitHub»</strong> → откроется браузер → нажми <strong>«Authorize Cursor»</strong></li>
+        <li>Вернись в Cursor — он уже залогинен ✅</li>
+      </ol>
+    </div>
+
+    <div id="cursor-mac" class="os-content">
+      <span class="section-title">Установка Cursor на Mac</span>
+      <ol class="mini-steps">
+        <li>Перейди на <a href="https://cursor.com" target="_blank">cursor.com</a> → нажми <strong>«Download for Mac»</strong></li>
+        <li>Откроется файл .dmg → перетащи иконку Cursor в папку «Приложения»</li>
+        <li>Открой «Приложения» → запусти Cursor</li>
+        <li>Если macOS предупредит о неизвестном разработчике → «Системные настройки» → «Конфиденциальность и безопасность» → <strong>«Всё равно открыть»</strong></li>
+        <li>На экране приветствия выбери тему</li>
+        <li>Войди через GitHub → нажми <strong>«Sign in with GitHub»</strong> → браузер откроется → <strong>«Authorize Cursor»</strong></li>
+        <li>Cursor залогинен ✅</li>
+      </ol>
+    </div>
+
+    <div class="accordion">
+      <button class="acc-trigger" onclick="toggleAcc(this)">
+        ⚠️ Частые проблемы с GitHub и Cursor <span class="acc-icon">+</span>
+      </button>
+      <div class="acc-body">
+        <div class="problem">
+          <div class="problem-q">GitHub не приходит письмо с кодом подтверждения</div>
+          <div class="problem-a">Проверь папку «Спам» в почте. Если там нет — нажми «Resend code» на странице GitHub. Подождать можно до 2–3 минут. Также убедись что VPN включён.</div>
+        </div>
+        <div class="problem">
+          <div class="problem-q">Cursor не запускается или вылетает при старте</div>
+          <div class="problem-a">На Windows: попробуй запустить от имени администратора (правый клик → «Запустить от имени администратора»). Если не помогает — скачай заново с cursor.com, предварительно удалив предыдущую установку через «Программы и компоненты».</div>
+        </div>
+        <div class="problem">
+          <div class="problem-q">Cursor просит подписку при запуске</div>
+          <div class="problem-a">У Cursor есть бесплатный tier с лимитами. Для полноценной работы с Claude Code нужна подписка Pro ($20/мес). Пока пропусти — оформим в следующем шаге вместе с Claude.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+
+<!-- SEP -->
+<div class="step-sep"><span class="step-sep-label">Шаг III — Claude аккаунт + Claude Code</span></div>
+
+<div class="steps">
+<!-- ════ ШАГ III: Claude Code ════ -->
+<div class="step">
+  <div class="hd">
+    <div class="num">III</div>
+    <div>
+      <h2>Claude Pro + Claude Code</h2>
+      <div class="sub">Регистрация → подписка Pro → подключение к Cursor</div>
+    </div>
+    <div class="step-time">~40 мин</div>
+  </div>
+  <div class="body">
+    <div class="io">
+      <div class="in">
+        <span class="k">Точка входа</span>
+        GitHub создан, Cursor установлен. Нет аккаунта Claude, нет подписки Pro, офис не подключён.
+      </div>
+      <div class="out">
+        <span class="k">Точка выхода</span>
+        Claude Pro оформлен. Claude Code работает в Cursor. Клиент самостоятельно написал первое сообщение офису и получил ответ.
+      </div>
+    </div>
+
+    <div class="wnote">
+      <strong>Комментарий для рабочего:</strong> Скажи клиенту: «Сейчас создадим ваш аккаунт Claude — это мозг вашего офиса. Подписка Pro стоит $20/месяц — как зарплата одного сотрудника, но этот работает 24/7.» ⚠️ Российские карты не работают для оплаты Anthropic напрямую — ниже три проверенных способа. Выбери тот, который быстрее получится у клиента.
+    </div>
+
+    <span class="section-title">Часть A.1 — Регистрация аккаунта Claude (одинаково для всех)</span>
+
+    <ol class="mini-steps">
+      <li>Убедись что VPN включён (США) → открой <a href="https://claude.ai" target="_blank">claude.ai</a></li>
+      <li>Нажми <strong>«Sign up»</strong> → введи email клиента → создай пароль → нажми <strong>«Continue»</strong></li>
+      <li>Подтверди email — придёт письмо с кнопкой, нажми <strong>«Verify email»</strong></li>
+      <li>Заполни имя и дату рождения → нажми <strong>«Continue»</strong></li>
+      <li>Аккаунт создан ✅ Теперь нужно оформить подписку Pro — выбери один из способов ниже</li>
+    </ol>
+
+    <span class="section-title">Часть A.2 — Оплата Claude Pro из России (выбери один способ)</span>
+
+    <div class="variants">
+
+      <div class="variant rec">
+        <h4>✅ Способ 1 — Ozon Bank (самый простой)</h4>
+        <p style="font-size:13px;color:var(--mut);line-height:1.6;margin-top:6px;">
+          Оплата рублями прямо из приложения Ozon. Не нужны крипта и иностранные карты.<br><br>
+          <strong style="color:var(--ink);">Шаги:</strong><br>
+          1. Открой приложение <strong>Ozon</strong> на телефоне клиента<br>
+          2. Перейди в раздел <strong>«Услуги»</strong> → <strong>«Иностранные сервисы»</strong><br>
+          3. Найди и выбери <strong>Claude</strong><br>
+          4. Введи email аккаунта Claude → выбери период (1 месяц)<br>
+          5. Оплати рублями через Ozon Pay<br>
+          6. На email придёт код активации → активируй на claude.ai<br>
+          7. В профиле Claude появится <strong>«Pro Plan»</strong> ✅
+        </p>
+      </div>
+
+      <div class="variant">
+        <h4>💳 Способ 2 — Посредник (быстро, за рубли)</h4>
+        <p style="font-size:13px;color:var(--mut);line-height:1.6;margin-top:6px;">
+          Сервис-посредник покупает подписку за тебя. Стоимость ~2 300–2 500₽ (включая комиссию ~450₽).<br><br>
+          <strong style="color:var(--ink);">Шаги:</strong><br>
+          1. Напиши в Telegram посреднику (уточни актуальный у куратора VIVI)<br>
+          2. Укажи: email аккаунта Claude + план Pro<br>
+          3. Оплати через СБП рублями<br>
+          4. Менеджер активирует подписку на аккаунт клиента<br>
+          5. Проверь: в профиле Claude должно быть <strong>«Pro Plan»</strong> ✅
+        </p>
+      </div>
+
+      <div class="variant">
+        <h4>🌍 Способ 3 — Иностранная виртуальная карта</h4>
+        <p style="font-size:13px;color:var(--mut);line-height:1.6;margin-top:6px;">
+          Подходит если клиент хочет карту на будущее (для оплаты других сервисов тоже).<br><br>
+          <strong style="color:var(--ink);">Шаги:</strong><br>
+          1. Зарегистрируйся на <strong>Wise.com</strong> или <strong>Revolut.com</strong><br>
+          2. Пройди верификацию (паспорт + селфи, ~10–15 мин)<br>
+          3. Пополни счёт переводом с российского банка (через SWIFT или агента)<br>
+          4. Создай виртуальную карту → скопируй номер, CVV, срок<br>
+          5. На claude.ai → «Upgrade to Pro» → введи данные виртуальной карты<br>
+          6. VPN должен быть включён на USA при оплате ⚠️<br>
+          7. <strong>«Pro Plan»</strong> активирован ✅
+        </p>
+      </div>
+
+    </div>
+
+    <div class="accordion" style="margin-top:14px;">
+      <button class="acc-trigger" onclick="toggleAcc(this)">
+        ⚠️ Частые проблемы с оплатой из России <span class="acc-icon">+</span>
+      </button>
+      <div class="acc-body">
+        <div class="problem">
+          <div class="problem-q">Карта отклоняется при оплате на claude.ai</div>
+          <div class="problem-a">Российские карты не работают — используй один из трёх способов выше. Если пробуешь Wise/Revolut — убедись что VPN включён на США в момент оплаты, иначе Stripe заблокирует транзакцию по IP.</div>
+        </div>
+        <div class="problem">
+          <div class="problem-q">Ozon не показывает Claude в «Иностранных сервисах»</div>
+          <div class="problem-a">Обнови приложение Ozon до последней версии. Если Claude всё равно нет — попробуй способ 2 (посредник). Наличие сервисов в Ozon периодически меняется.</div>
+        </div>
+        <div class="problem">
+          <div class="problem-q">Wise/Revolut не верифицирует клиента</div>
+          <div class="problem-a">Попробуй Revolut вместо Wise (или наоборот) — у них разные требования к документам. Если оба не работают — переходи к способу 2 (посредник через Telegram), это самый надёжный вариант.</div>
+        </div>
+        <div class="problem">
+          <div class="problem-q">Код активации от Ozon не работает</div>
+          <div class="problem-a">Убедись что вводишь код в разделе «Redeem a code» на claude.ai (не в поле оплаты картой). VPN должен быть включён на США в момент активации.</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- OS TABS -->
+    <div class="os-tabs">
+      <div class="os-tab active-tab" onclick="switchTab(this, 'claude-win')">🪟 Windows</div>
+      <div class="os-tab" onclick="switchTab(this, 'claude-mac')">🍎 Mac</div>
+    </div>
+
+    <div id="claude-win" class="os-content active-content">
+      <span class="section-title">Установка Claude Code на Windows</span>
+      <ol class="mini-steps">
+        <li>Открой <strong>PowerShell</strong> от имени администратора: нажми Win → введи «PowerShell» → правый клик → <strong>«Запустить от имени администратора»</strong></li>
+        <li>Вставь команду и нажми Enter:
+          <div class="code-block">irm https://claude.ai/install.ps1 | iex</div>
+        </li>
+        <li>Жди завершения установки (1–2 минуты) — ты увидишь «Claude Code installed successfully»</li>
+        <li>Закрой PowerShell и открой его заново (обычный, не от администратора)</li>
+        <li>Введи команду:
+          <div class="code-block">claude</div>
+        </li>
+        <li>Откроется запрос на авторизацию → нажми Enter → откроется браузер → войди в аккаунт Claude клиента → нажми <strong>«Allow»</strong></li>
+        <li>Claude Code авторизован в терминале ✅</li>
+        <li>Теперь подключи в Cursor: открой Cursor → нажми <strong>Ctrl+Shift+X</strong> (Extensions) → введи «Claude Code» → установи расширение от Anthropic → нажми <strong>«Sign in»</strong></li>
+        <li>Откроется браузер → войди в тот же аккаунт Claude → «Allow»</li>
+        <li>В Cursor появится значок Claude Code в боковой панели ✅</li>
+        <li>Тест: открой папку с репозиторием VIVI в Cursor → нажми на значок Claude Code → напиши «привет» → убедись что офис ответил ✅</li>
+      </ol>
+    </div>
+
+    <div id="claude-mac" class="os-content">
+      <span class="section-title">Установка Claude Code на Mac</span>
+      <ol class="mini-steps">
+        <li>Открой <strong>Terminal</strong>: нажми Cmd+Пробел → введи «Terminal» → Enter</li>
+        <li>Вставь команду и нажми Enter:
+          <div class="code-block">curl -fsSL https://claude.ai/install.sh | bash</div>
+        </li>
+        <li>Жди завершения (1–2 минуты) — увидишь «Claude Code installed successfully»</li>
+        <li>Закрой Terminal и открой заново</li>
+        <li>Введи команду:
+          <div class="code-block">claude</div>
+        </li>
+        <li>Откроется запрос авторизации → нажми Enter → браузер откроется → войди в аккаунт Claude → нажми <strong>«Allow»</strong></li>
+        <li>Claude Code авторизован ✅</li>
+        <li>Открой Cursor → нажми <strong>Cmd+Shift+X</strong> (Extensions) → найди «Claude Code» от Anthropic → установи</li>
+        <li>Нажми <strong>«Sign in»</strong> → войди в тот же Claude-аккаунт</li>
+        <li>В боковой панели Cursor появился значок Claude Code ✅</li>
+        <li>Тест: открой папку VIVI в Cursor → Claude Code → напиши «привет» → офис ответил ✅</li>
+      </ol>
+    </div>
+
+    <div class="accordion">
+      <button class="acc-trigger" onclick="toggleAcc(this)">
+        ⚠️ Частые проблемы с Claude Code <span class="acc-icon">+</span>
+      </button>
+      <div class="acc-body">
+        <div class="problem">
+          <div class="problem-q">Команда claude не находится после установки</div>
+          <div class="problem-a">На Windows: закрой и снова открой PowerShell. Если не помогает — выйди из системы и зайди снова. На Mac: закрой Terminal → открой заново → попробуй команду <span style="color:var(--rose);font-family:monospace">which claude</span>. Если не находит — переустанови командой curl.</div>
+        </div>
+        <div class="problem">
+          <div class="problem-q">Claude Code не видит репозиторий VIVI</div>
+          <div class="problem-a">В Cursor нажми «File → Open Folder» и выбери папку с репозиторием. Claude Code работает только внутри открытого проекта. Убедись что папка VIVI клонирована (git clone) или скопирована на компьютер.</div>
+        </div>
+        <div class="problem">
+          <div class="problem-q">Расширение Claude Code не появляется в Cursor</div>
+          <div class="problem-a">Попробуй установить вручную: найди папку с Claude Code (Windows: C:\Users\[имя]\.claude, Mac: ~/.claude) → найди файл .vsix → перетащи в окно Extensions в Cursor.</div>
+        </div>
+        <div class="problem">
+          <div class="problem-q">При оплате Claude Pro карта отклоняется</div>
+          <div class="problem-a">Убедись что VPN включён и показывает США. Российские карты обычно не работают — используй иностранную карту или попроси клиента завести карту в иностранном банке/виртуальную карту (Wise, Revolut).</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+
+<!-- SEP -->
+<div class="step-sep"><span class="step-sep-label">Шаг IV — Дизайн</span></div>
+
+<div class="steps">
+<!-- ════ ШАГ IV ════ -->
+<div class="step">
+  <div class="hd">
+    <div class="num">IV</div>
+    <div>
+      <h2>Дизайн</h2>
+      <div class="sub">Брендбук → первый сайт на Vercel</div>
+    </div>
+    <div class="step-time">~45 мин</div>
+  </div>
+  <div class="body">
+    <div class="io">
+      <div class="in">
+        <span class="k">Точка входа</span>
+        Офис запущен в Cursor. Клиент готов общаться с агентами. Нет брендбука, нет сайта, нет зафиксированного голоса.
+      </div>
+      <div class="out">
+        <span class="k">Точка выхода</span>
+        Брендбук собран, сайт опубликован на Vercel. Клиент видит свой первый сайт в браузере.
+      </div>
+    </div>
+
+    <div class="wnote">
+      <strong>Комментарий для рабочего:</strong> Этот шаг клиент делает почти самостоятельно — ты только объясняешь что происходит. Агент-Дизайнер будет задавать вопросы — просто дай клиенту отвечать. Не вмешивайся в диалог. После того как сайт будет готов — клиент сам делится ссылкой. Воздержись от оценок («красиво», «некрасиво»), пусть клиент сам оценит.
+    </div>
+
+    <!-- OS TABS -->
+    <div class="os-tabs">
+      <div class="os-tab active-tab" onclick="switchTab(this, 'design-win')">🪟 Windows</div>
+      <div class="os-tab" onclick="switchTab(this, 'design-mac')">🍎 Mac</div>
+    </div>
+
+    <div id="design-win" class="os-content active-content">
+      <span class="section-title">A. Брендбук и сайт</span>
+      <ol class="mini-steps">
+        <li>Открой Cursor, убедись что папка VIVI открыта (File → Open Folder)</li>
+        <li>Нажми на значок Claude Code в боковой панели</li>
+        <li>Клиент сам вставляет этот промпт (скопируй ему в чат):
+          <div class="code-block">Запусти агента-Дизайнера. Сначала собери мой брендбук: задай мне вопросы по одному — про цвета, шрифты, ценности бренда, целевую аудиторию и стиль. После того, как брендбук собран и зафиксирован, создай мой первый сайт на Vercel в этом фирменном стиле.</div>
+        </li>
+        <li>Агент начнёт задавать вопросы по одному — клиент отвечает, ты наблюдаешь</li>
+        <li>После всех вопросов агент создаст сайт и задеплоит на Vercel — ждите 3–5 минут</li>
+        <li>Агент даст ссылку вида <span style="color:var(--rose);font-family:monospace">https://[имя].vercel.app</span> → открой её в браузере ✅</li>
+      </ol>
+
+    </div>
+
+    <div id="design-mac" class="os-content">
+      <span class="section-title">A. Брендбук и сайт</span>
+      <ol class="mini-steps">
+        <li>Открой Cursor → File → Open Folder → выбери папку VIVI</li>
+        <li>Нажми значок Claude Code в боковой панели (или Cmd+Shift+P → «Claude Code»)</li>
+        <li>Скопируй клиенту этот промпт:
+          <div class="code-block">Запусти агента-Дизайнера. Сначала собери мой брендбук: задай мне вопросы по одному — про цвета, шрифты, ценности бренда, целевую аудиторию и стиль. После того, как брендбук собран и зафиксирован, создай мой первый сайт на Vercel в этом фирменном стиле.</div>
+        </li>
+        <li>Клиент отвечает на вопросы агента → агент создаёт сайт → ждите 3–5 минут</li>
+        <li>Перейди по ссылке vercel.app, которую даст агент ✅</li>
+      </ol>
+
+    </div>
+
+    <div class="accordion">
+      <button class="acc-trigger" onclick="toggleAcc(this)">
+        ⚠️ Частые проблемы с дизайном <span class="acc-icon">+</span>
+      </button>
+      <div class="acc-body">
+        <div class="problem">
+          <div class="problem-q">Агент не отвечает или завис</div>
+          <div class="problem-a">Подожди 30 секунд — иногда агент думает. Если нет ответа через минуту — нажми Escape → напиши «продолжай» и отправь.</div>
+        </div>
+        <div class="problem">
+          <div class="problem-q">Vercel деплой упал с ошибкой</div>
+          <div class="problem-a">Попроси агента: «Деплой упал с ошибкой [вставь ошибку]. Исправь и задеплой заново.» Агент сам разберётся с большинством ошибок деплоя.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+
+<!-- SEP -->
+<div class="step-sep"><span class="step-sep-label">Шаг V — Собственный бот-транскрибатор + Интерактивная методичка</span></div>
+
+<div class="steps">
+<!-- ════ ШАГ V ════ -->
+<div class="step">
+  <div class="hd">
+    <div class="num">V</div>
+    <div>
+      <h2>Собственный бот-транскрибатор + Интерактивная методичка</h2>
+      <div class="sub">Подключение транскрибатора → методичка из эфира клиента</div>
+    </div>
+    <div class="step-time">~50 мин</div>
+  </div>
+  <div class="body">
+    <div class="io">
+      <div class="in">
+        <span class="k">Точка входа</span>
+        Голос и дизайн зафиксированы. Нет инструмента транскрибации. Есть запись эфира/обучения клиента.
+      </div>
+      <div class="out">
+        <span class="k">Точка выхода</span>
+        DeepGram подключён, первое аудио транскрибировано. Интерактивная методичка в фирменном стиле опубликована на Vercel.
+      </div>
+    </div>
+
+    <div class="wnote">
+      <strong>Комментарий для рабочего:</strong> DeepGram даёт $200 бесплатно при регистрации — этого хватит на очень долго. Объясни клиенту: «После того как установим это — вы сможете надиктовывать текст голосом и получать готовый текст за секунды. Очень удобно для подготовки материалов.» Заранее попроси клиента найти запись какого-нибудь своего эфира или обучения — она понадобится в конце.
+    </div>
+
+    <!-- OS TABS -->
+    <div class="os-tabs">
+      <div class="os-tab active-tab" onclick="switchTab(this, 'dg-win')">🪟 Windows</div>
+      <div class="os-tab" onclick="switchTab(this, 'dg-mac')">🍎 Mac</div>
+    </div>
+
+    <div id="dg-win" class="os-content active-content">
+      <span class="section-title">A. Регистрация DeepGram</span>
+      <ol class="mini-steps">
+        <li>Убедись что VPN включён → открой <a href="https://deepgram.com" target="_blank">deepgram.com</a></li>
+        <li>Нажми <strong>«Get Started Free»</strong> → введи email клиента → создай пароль → нажми <strong>«Create Account»</strong></li>
+        <li>Подтверди email — придёт письмо, нажми «Verify»</li>
+        <li>После входа: нажми <strong>«API Keys»</strong> в левом меню → <strong>«Create a New API Key»</strong></li>
+        <li>Назови ключ «VIVI» → нажми <strong>«Create Key»</strong></li>
+        <li>Скопируй API ключ (длинная строка) → сохрани в текстовый файл на рабочем столе ⚠️ Показывается только один раз!</li>
+      </ol>
+
+      <span class="section-title">B. Подключение к Cursor</span>
+      <ol class="mini-steps">
+        <li>В Cursor напиши Claude Code:
+          <div class="code-block">Помоги мне подключить DeepGram к офису. Мой API ключ: [вставь скопированный ключ]. Проведи меня по настройке.</div>
+        </li>
+        <li>Агент настроит интеграцию шаг за шагом → следуй его инструкциям</li>
+        <li>Тест: попроси агента транскрибировать короткое аудио → убедись что получился текст ✅</li>
+      </ol>
+
+      <span class="section-title">C. Интерактивная методичка</span>
+      <ol class="mini-steps">
+        <li>Клиент транскрибирует свою запись эфира через DeepGram → получает .txt файл</li>
+        <li>Открывает .txt → копирует весь текст</li>
+        <li>Вставляет в Cursor этот промпт:
+          <div class="code-block">Вот расшифровка моего эфира: [текст].
+
+Прежде чем начать — задай мне 2–3 вопроса, чтобы лучше понять мою аудиторию и главный результат этого обучения.
+
+После моих ответов создай интерактивную методичку:
+- Пиши в моём голосе (используй voice.md)
+- Используй фирменный стиль (используй брендбук)
+- Сделай её интерактивной: HTML-элементы, мини-тесты, геймификация
+- Не используй длинные тире (—), только короткие (-)
+- Цель: человек откроет и скажет «охренеть, как меня точно поняли»
+
+Задеплой на Vercel когда методичка будет готова.</div>
+        </li>
+        <li>Клиент отвечает на 2–3 вопроса агента → агент создаёт методичку</li>
+        <li>Агент даст ссылку на Vercel → открой и проверь ✅</li>
+      </ol>
+    </div>
+
+    <div id="dg-mac" class="os-content">
+      <span class="section-title">A. Регистрация DeepGram</span>
+      <ol class="mini-steps">
+        <li>VPN включён → открой <a href="https://deepgram.com" target="_blank">deepgram.com</a></li>
+        <li>«Get Started Free» → email → пароль → «Create Account»</li>
+        <li>Подтверди email из письма</li>
+        <li>«API Keys» → «Create a New API Key» → назови «VIVI» → «Create Key»</li>
+        <li>Скопируй API ключ → сохрани в TextEdit на рабочем столе ⚠️</li>
+      </ol>
+
+      <span class="section-title">B. Подключение к Cursor</span>
+      <ol class="mini-steps">
+        <li>В Cursor → Claude Code → введи:
+          <div class="code-block">Помоги мне подключить DeepGram к офису. Мой API ключ: [ключ]. Проведи меня по настройке.</div>
+        </li>
+        <li>Следуй инструкциям агента → тест транскрибации ✅</li>
+      </ol>
+
+      <span class="section-title">C. Методичка</span>
+      <ol class="mini-steps">
+        <li>Транскрибируй запись эфира → скопируй текст</li>
+        <li>Вставь промпт:
+          <div class="code-block">Вот расшифровка моего эфира: [текст].
+
+Прежде чем начать — задай мне 2–3 вопроса, чтобы лучше понять мою аудиторию и главный результат этого обучения.
+
+После моих ответов создай интерактивную методичку:
+- Пиши в моём голосе (используй voice.md)
+- Используй фирменный стиль (используй брендбук)
+- Сделай её интерактивной: HTML-элементы, мини-тесты, геймификация
+- Не используй длинные тире (—), только короткие (-)
+- Цель: человек откроет и скажет «охренеть, как меня точно поняли»
+
+Задеплой на Vercel когда методичка будет готова.</div>
+        </li>
+        <li>Клиент отвечает → агент создаёт → методичка на Vercel ✅</li>
+      </ol>
+    </div>
+
+    <div class="accordion">
+      <button class="acc-trigger" onclick="toggleAcc(this)">
+        ⚠️ Частые проблемы с DeepGram и методичкой <span class="acc-icon">+</span>
+      </button>
+      <div class="acc-body">
+        <div class="problem">
+          <div class="problem-q">DeepGram говорит «insufficient credits»</div>
+          <div class="problem-a">Проверь что email подтверждён — без подтверждения $200 не начисляются. Перейди в deepgram.com → настройки аккаунта → проверь баланс.</div>
+        </div>
+        <div class="problem">
+          <div class="problem-q">Транскрибация выдаёт абракадабру или на английском</div>
+          <div class="problem-a">В настройках запроса укажи язык: в промпте для агента добавь «язык аудио — русский». Агент передаст параметр language=ru в DeepGram API.</div>
+        </div>
+        <div class="problem">
+          <div class="problem-q">Методичка выглядит скучно или как простой текст</div>
+          <div class="problem-a">Скажи агенту: «Методичка получилась слишком простой. Добавь больше интерактива: аккордеоны, прогресс-бар, кликабельные карточки с заданиями, мини-тесты после каждого блока. Задеплой снова.»</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+
+<!-- SEP -->
+<div class="step-sep"><span class="step-sep-label">Программа завершена</span></div>
+
+<!-- ════ ИТОГ ════ -->
+<div class="result-block">
+  <div class="result-badge">Клиент включён</div>
+  <h2><span class="grad">Офис запущен</span><br><span style="color:var(--ink)">и передан клиенту.</span></h2>
+  <p class="result-lead">Все пять этапов пройдены. Убедись что клиент сам может открыть Cursor, написать офису и получить ответ — без твоей помощи.</p>
+
+  <div class="res-grid">
+    <div class="res-card">
+      <span class="fi">🔒</span>
+      <p>VPN активен<br><span style="color:#4b5563; font-size:11px;">Amnezia / NordVPN</span></p>
+    </div>
+    <div class="res-card">
+      <span class="fi">💻</span>
+      <p>Cursor + Claude Code<br><span style="color:#4b5563; font-size:11px;">Офис отвечает</span></p>
+    </div>
+    <div class="res-card">
+      <span class="fi">🌐</span>
+      <p>Сайт + Методичка<br><span style="color:#4b5563; font-size:11px;">На Vercel</span></p>
+    </div>
+  </div>
+
+  <div class="wnote" style="text-align:left;max-width:640px;margin:0 auto;">
+    <strong>Финальный чек для рабочего:</strong> Перед уходом — попроси клиента самостоятельно (без твоей помощи) написать офису любое сообщение и получить ответ. Если работает — ты молодец. Сообщи своему куратору что клиент включён.
+  </div>
+</div>
+
+<!-- ════ ИНФРАСТРУКТУРА ════ -->
+<div class="infra">
+  <h3>Инфраструктура сессии</h3>
+  <table class="itable">
+    <tr>
+      <td>VPN</td>
+      <td>Amnezia VPN (основной, бесплатно) + NordVPN (резервный, платный)</td>
+    </tr>
+    <tr>
+      <td>GitHub</td>
+      <td>Аккаунт клиента + форк репозитория VIVI</td>
+    </tr>
+    <tr>
+      <td>IDE</td>
+      <td>Cursor (скачать с cursor.com)</td>
+    </tr>
+    <tr>
+      <td>Claude</td>
+      <td>claude.ai — подписка Pro ($20/мес)</td>
+    </tr>
+    <tr>
+      <td>Claude Code</td>
+      <td>CLI + расширение в Cursor от Anthropic</td>
+    </tr>
+    <tr>
+      <td>Деплой сайтов</td>
+      <td>Vercel (агент деплоит автоматически)</td>
+    </tr>
+    <tr>
+      <td>Транскрибатор</td>
+      <td>DeepGram ($200 бесплатно при регистрации)</td>
+    </tr>
+    <tr>
+      <td>Удалённый доступ</td>
+      <td>Zoom Remote Control (для помощи если что-то не работает)</td>
+    </tr>
+  </table>
+</div>
+
+<p class="foot">VIVI · Техническая карта рабочего · v1 · 01.07.2026 · 🔒 Только для внутреннего использования</p>
+
+</div>
+
+<script>
+  function switchTab(tab, targetId) {
+    // find all tabs in the same group
+    const tabGroup = tab.parentElement;
+    const contentParent = tabGroup.parentElement;
+
+    tabGroup.querySelectorAll('.os-tab').forEach(t => t.classList.remove('active-tab'));
+    tab.classList.add('active-tab');
+
+    // hide all sibling os-contents
+    let el = tabGroup.nextElementSibling;
+    while (el && el.classList.contains('os-content')) {
+      el.classList.remove('active-content');
+      el = el.nextElementSibling;
+    }
+
+    document.getElementById(targetId).classList.add('active-content');
+  }
+
+  function toggleAcc(trigger) {
+    trigger.classList.toggle('open');
+    const body = trigger.nextElementSibling;
+    body.classList.toggle('open');
+  }
+</script>
+</body>
+</html>
