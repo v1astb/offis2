@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<title>VIVI VIP · Step 06</title>
+<style>
+  @font-face { font-family: 'Unbounded'; font-weight: 900; font-display: block; src: url('./unbounded-900.ttf') format('truetype'); }
+  @font-face { font-family: 'Inter'; font-weight: 400; font-display: block; src: url('./inter-400.ttf') format('truetype'); }
+  @font-face { font-family: 'Inter'; font-weight: 600; font-display: block; src: url('./inter-600.ttf') format('truetype'); }
+  @font-face { font-family: 'Space Mono'; font-weight: 700; font-display: block; src: url('./spacemono-700.ttf') format('truetype'); }
+  :root { --accent: #C9A227; --acc2: #8B6914; }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { width: 2560px; height: 1440px; overflow: hidden; }
+  body { width: 1456px; height: 816px; transform: scale(1.764); transform-origin: 0 0; }
+  body {
+    background: #0a0906; color: #fff;
+    font-family: 'Inter', sans-serif;
+    -webkit-font-smoothing: antialiased;
+    position: relative;
+  }
+  body::before {
+    content: ''; position: absolute; inset: 0;
+    background: radial-gradient(ellipse 900px 500px at 88% 10%, rgba(201,162,39,0.1) 0%, transparent 60%),
+                radial-gradient(ellipse 400px 600px at 10% 80%, rgba(139,105,20,0.06) 0%, transparent 50%);
+    pointer-events: none;
+  }
+
+  .top-nav {
+    position: absolute; top: 0; left: 0; right: 0;
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 22px 36px; border-bottom: 1px solid rgba(201,162,39,0.12);
+  }
+  .top-left { display: flex; align-items: center; gap: 10px; font-size: 11px; letter-spacing: .18em; text-transform: uppercase; color: rgba(255,255,255,.4); }
+  .top-dot { width: 8px; height: 8px; border-radius: 50%; background: var(--accent); box-shadow: 0 0 8px rgba(201,162,39,0.6); }
+  .top-right { font-size: 11px; letter-spacing: .18em; color: rgba(255,255,255,.3); }
+
+  .bottom-nav {
+    position: absolute; bottom: 0; left: 0; right: 0;
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 18px 36px; border-top: 1px solid rgba(201,162,39,0.1);
+  }
+  .bottom-left { font-size: 11px; letter-spacing: .18em; text-transform: uppercase; color: rgba(255,255,255,.3); }
+  .bottom-right { display: flex; gap: 40px; font-size: 10px; letter-spacing: .18em; text-transform: uppercase; color: rgba(255,255,255,.3); }
+  .bottom-right .acc { color: var(--accent); }
+
+  .divider { position: absolute; left: 790px; top: 64px; bottom: 54px; width: 1px; background: rgba(201,162,39,0.12); }
+
+  .right-labels {
+    position: absolute; top: 76px; left: 818px; right: 36px;
+    display: flex; justify-content: space-between;
+    font-size: 10px; letter-spacing: .22em; text-transform: uppercase; color: rgba(255,255,255,.28);
+  }
+
+  .left {
+    position: absolute; top: 64px; bottom: 54px;
+    left: 36px; width: 740px;
+    display: flex; flex-direction: column; justify-content: center;
+  }
+  .step-label { font-size: 11px; letter-spacing: .22em; text-transform: uppercase; color: rgba(255,255,255,.28); margin-bottom: 22px; }
+  .step-label .n { color: var(--accent); }
+
+  .headline { font-family: 'Unbounded', sans-serif; font-weight: 900; font-size: 104px; line-height: .9; letter-spacing: -.02em; text-transform: uppercase; margin-bottom: 34px; }
+  .hl-w { color: #fff; display: block; }
+  .hl-a { color: var(--accent); display: flex; align-items: center; gap: 16px; text-shadow: 0 0 40px rgba(201,162,39,0.3); }
+  .diamond { font-size: 56px; line-height: 1; }
+
+  .desc { font-size: 17px; line-height: 1.58; color: rgba(255,255,255,.65); max-width: 600px; margin-bottom: 30px; }
+  .desc .hi { color: var(--accent); font-weight: 600; }
+  .tech { font-family: 'Space Mono', monospace; font-size: 12px; letter-spacing: .1em; color: rgba(255,255,255,.3); }
+
+  .right {
+    position: absolute; top: 108px; bottom: 66px;
+    left: 818px; right: 36px;
+    display: flex; flex-direction: column; gap: 10px; justify-content: center;
+  }
+
+  /* CONTENT PIPELINE */
+  .pipeline-card {
+    background: rgba(201,162,39,0.04);
+    border: 1px solid rgba(201,162,39,0.14);
+    border-radius: 14px; overflow: hidden;
+  }
+  .pipeline-head {
+    background: rgba(201,162,39,0.08);
+    border-bottom: 1px solid rgba(201,162,39,0.14);
+    padding: 10px 14px; display: flex; align-items: center; justify-content: space-between;
+  }
+  .pipeline-head-left { display: flex; align-items: center; gap: 8px; }
+  .pipe-icon { font-size: 14px; }
+  .pipe-title { font-size: 13px; font-weight: 600; }
+  .pipe-status { font-size: 10px; color: var(--accent); letter-spacing: .04em; }
+  .pipe-count { font-family: 'Space Mono', monospace; font-size: 11px; color: rgba(201,162,39,0.6); }
+  .pipeline-body { padding: 10px 12px; display: flex; flex-direction: column; gap: 6px; }
+  .pipe-row {
+    display: flex; align-items: center; gap: 10px;
+    padding: 8px 10px; border-radius: 8px;
+    background: rgba(255,255,255,.02); border: 1px solid rgba(255,255,255,.04);
+  }
+  .pipe-stage {
+    font-size: 9px; font-weight: 700; letter-spacing: .07em; text-transform: uppercase;
+    padding: 2px 7px; border-radius: 4px; flex-shrink: 0; min-width: 72px; text-align: center;
+  }
+  .stage-idea     { background: rgba(139,105,20,.25); color: #D4A843; }
+  .stage-script   { background: rgba(201,162,39,.2); color: var(--accent); }
+  .stage-video    { background: rgba(255,200,50,.12); color: #FFD166; }
+  .stage-ready    { background: rgba(34,227,163,.12); color: #22e3a3; }
+  .pipe-text { font-size: 12px; color: rgba(255,255,255,.55); flex: 1; }
+  .pipe-time { font-family: 'Space Mono', monospace; font-size: 10px; color: rgba(255,255,255,.22); flex-shrink: 0; }
+
+  /* STATS ROW */
+  .stats-row {
+    display: flex; gap: 8px;
+  }
+  .stat-card {
+    flex: 1; background: rgba(201,162,39,0.05); border: 1px solid rgba(201,162,39,0.12);
+    border-radius: 10px; padding: 10px 12px; text-align: center;
+  }
+  .stat-num { font-family: 'Unbounded', sans-serif; font-size: 26px; font-weight: 900; color: var(--accent); line-height: 1; margin-bottom: 4px; }
+  .stat-label { font-size: 10px; color: rgba(255,255,255,.3); letter-spacing: .06em; text-transform: uppercase; }
+
+  .right-bot { position: absolute; bottom: 66px; left: 818px; right: 36px; display: flex; justify-content: space-between; font-size: 10px; letter-spacing: .18em; text-transform: uppercase; color: rgba(255,255,255,.22); }
+  .right-bot .acc { color: var(--accent); }
+</style>
+</head>
+<body>
+
+<div class="top-nav">
+  <div class="top-left"><div class="top-dot"></div>VIVI VIP · STEP 06</div>
+  <div class="top-right">06 / 06</div>
+</div>
+
+<div class="bottom-nav">
+  <div class="bottom-left">S6 · REELS</div>
+  <div class="bottom-right">
+    <span>TIER · VIP</span>
+    <span>REF · VIVI/06</span>
+    <span class="acc">КОНТЕНТ-ЗАВОД ЗАПУЩЕН</span>
+  </div>
+</div>
+
+<div class="divider"></div>
+
+<div class="right-labels">
+  <span>КОНТЕНТ-ЗАВОД</span>
+  <span>BLUEPRINT</span>
+</div>
+
+<div class="left">
+  <div class="step-label">ШАГ <span class="n">№06</span> · ПРОИЗВОДСТВО</div>
+  <div class="headline">
+    <span class="hl-w">ТВОЙ</span>
+    <span class="hl-a">КОНТЕНТ <span class="diamond">♦</span></span>
+    <span class="hl-w">ЗАВОД</span>
+  </div>
+  <div class="desc">
+    Идея → сценарий → готовый Reels. <span class="hi">Офис производит контент</span> пока ты занимаешься делом. Бесконечный поток — без выгорания и дедлайнов.
+  </div>
+  <div class="tech">→ Копирайтер · Дизайнер · DeepGram · Reels</div>
+</div>
+
+<div class="right">
+  <div class="pipeline-card">
+    <div class="pipeline-head">
+      <div class="pipeline-head-left">
+        <span class="pipe-icon">🎬</span>
+        <div>
+          <div class="pipe-title">Контент-завод · Очередь</div>
+          <div class="pipe-status">● активен · производит</div>
+        </div>
+      </div>
+      <div class="pipe-count">4 в работе</div>
+    </div>
+    <div class="pipeline-body">
+      <div class="pipe-row">
+        <span class="pipe-stage stage-ready">Готов</span>
+        <span class="pipe-text">Reels: как я запустил офис за 40 минут</span>
+        <span class="pipe-time">сегодня</span>
+      </div>
+      <div class="pipe-row">
+        <span class="pipe-stage stage-video">Монтаж</span>
+        <span class="pipe-text">3 ошибки при работе с AI — и как их избежать</span>
+        <span class="pipe-time">2 ч</span>
+      </div>
+      <div class="pipe-row">
+        <span class="pipe-stage stage-script">Сценарий</span>
+        <span class="pipe-text">День из жизни с персональным AI-офисом</span>
+        <span class="pipe-time">4 ч</span>
+      </div>
+      <div class="pipe-row">
+        <span class="pipe-stage stage-idea">Идея</span>
+        <span class="pipe-text">Почему я больше не нанимаю фрилансеров</span>
+        <span class="pipe-time">завтра</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="stats-row">
+    <div class="stat-card">
+      <div class="stat-num">60+</div>
+      <div class="stat-label">Reels в месяц</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-num">0₽</div>
+      <div class="stat-label">на монтажёра</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-num">∞</div>
+      <div class="stat-label">поток контента</div>
+    </div>
+  </div>
+</div>
+
+<div class="right-bot">
+  <span>FACTORY · ONLINE</span>
+  <span class="acc">REELS · PRODUCTION · ACTIVE</span>
+</div>
+
+</body>
+</html>

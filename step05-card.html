@@ -3,12 +3,17 @@
 <head>
 <meta charset="UTF-8">
 <title>VIVI VIP · Step 05</title>
-<link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@900&family=Space+Mono:wght@700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
+  @font-face { font-family: 'Unbounded'; font-weight: 900; font-display: block; src: url('./unbounded-900.ttf') format('truetype'); }
+  @font-face { font-family: 'Inter'; font-weight: 400; font-display: block; src: url('./inter-400.ttf') format('truetype'); }
+  @font-face { font-family: 'Inter'; font-weight: 600; font-display: block; src: url('./inter-600.ttf') format('truetype'); }
+  @font-face { font-family: 'Space Mono'; font-weight: 700; font-display: block; src: url('./spacemono-700.ttf') format('truetype'); }
   :root { --accent: #00C2A8; }
   * { margin: 0; padding: 0; box-sizing: border-box; }
-  html, body { width: 1456px; height: 816px; overflow: hidden; }
+  html { width: 2560px; height: 1440px; overflow: hidden; }
   body {
+    width: 1456px; height: 816px;
+    transform: scale(1.764); transform-origin: 0 0;
     background: #0a0a0a; color: #fff;
     font-family: 'Inter', sans-serif;
     -webkit-font-smoothing: antialiased;
@@ -56,7 +61,7 @@
 
   .headline { font-family: 'Unbounded', sans-serif; font-weight: 900; font-size: 104px; line-height: .9; letter-spacing: -.02em; text-transform: uppercase; margin-bottom: 34px; }
   .hl-w { color: #fff; display: block; }
-  .hl-a { color: var(--accent); display: flex; align-items: center; gap: 16px; }
+  .hl-a { color: var(--accent); display: flex; align-items: center; gap: 16px; text-shadow: 0 0 40px rgba(0,194,168,0.3); }
   .diamond { font-size: 56px; line-height: 1; }
 
   .desc { font-size: 17px; line-height: 1.58; color: rgba(255,255,255,.65); max-width: 600px; margin-bottom: 30px; }
@@ -69,30 +74,30 @@
     display: flex; flex-direction: column; gap: 10px; justify-content: center;
   }
 
-  /* DIRECTOR CHAT */
-  .dir-card { background: rgba(255,255,255,.03); border: 1px solid rgba(255,255,255,.07); border-radius: 14px; overflow: hidden; }
-  .dir-head { background: rgba(0,194,168,.1); border-bottom: 1px solid rgba(0,194,168,.18); padding: 10px 14px; display: flex; align-items: center; justify-content: space-between; }
-  .dir-head-left { display: flex; align-items: center; gap: 10px; }
-  .dir-icon { width: 30px; height: 30px; border-radius: 50%; background: var(--accent); display: flex; align-items: center; justify-content: center; font-size: 13px; flex-shrink: 0; }
-  .dir-name { font-size: 13px; font-weight: 600; }
-  .dir-status { font-size: 10px; color: var(--accent); letter-spacing: .04em; margin-top: 1px; }
-  .dir-time { font-family: 'Space Mono', monospace; font-size: 12px; color: rgba(255,255,255,.3); }
-  .dir-body { padding: 10px 12px; display: flex; flex-direction: column; gap: 7px; }
+  /* STRATEGIST CHAT */
+  .strat-card { background: rgba(255,255,255,.03); border: 1px solid rgba(255,255,255,.07); border-radius: 14px; overflow: hidden; }
+  .strat-head { background: rgba(0,194,168,.1); border-bottom: 1px solid rgba(0,194,168,.18); padding: 10px 14px; display: flex; align-items: center; justify-content: space-between; }
+  .strat-head-left { display: flex; align-items: center; gap: 10px; }
+  .strat-icon { width: 30px; height: 30px; border-radius: 50%; background: var(--accent); display: flex; align-items: center; justify-content: center; font-size: 13px; flex-shrink: 0; color: #000; font-weight: 700; }
+  .strat-name { font-size: 13px; font-weight: 600; }
+  .strat-status { font-size: 10px; color: var(--accent); letter-spacing: .04em; margin-top: 1px; }
+  .strat-badge { font-family: 'Space Mono', monospace; font-size: 11px; color: rgba(0,194,168,0.6); }
+  .strat-body { padding: 10px 12px; display: flex; flex-direction: column; gap: 7px; }
   .chat-msg { padding: 7px 11px; border-radius: 10px; font-size: 12px; line-height: 1.45; max-width: 88%; }
   .chat-msg.u { background: rgba(255,255,255,.05); border: 1px solid rgba(255,255,255,.08); color: rgba(255,255,255,.65); align-self: flex-end; border-radius: 10px 10px 3px 10px; }
-  .chat-msg.d { background: rgba(0,194,168,.12); border: 1px solid rgba(0,194,168,.2); color: rgba(255,255,255,.82); align-self: flex-start; border-radius: 10px 10px 10px 3px; }
-  .dir-sender { font-size: 10px; color: var(--accent); font-weight: 700; margin-bottom: 3px; letter-spacing: .05em; }
+  .chat-msg.s { background: rgba(0,194,168,.12); border: 1px solid rgba(0,194,168,.2); color: rgba(255,255,255,.82); align-self: flex-start; border-radius: 10px 10px 10px 3px; }
+  .strat-sender { font-size: 10px; color: var(--accent); font-weight: 700; margin-bottom: 3px; letter-spacing: .05em; }
 
-  /* PLAN CARD */
-  .plan-card { background: rgba(255,255,255,.025); border: 1px solid rgba(255,255,255,.07); border-radius: 14px; padding: 12px 14px; display: flex; flex-direction: column; gap: 7px; }
-  .plan-title { font-size: 10px; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; color: var(--accent); margin-bottom: 3px; }
-  .plan-item { display: flex; align-items: center; gap: 10px; padding: 5px 8px; border-radius: 7px; background: rgba(255,255,255,.02); border: 1px solid rgba(255,255,255,.04); }
-  .plan-num { width: 18px; height: 18px; border-radius: 5px; background: rgba(0,194,168,.2); display: flex; align-items: center; justify-content: center; font-size: 10px; font-weight: 700; color: var(--accent); flex-shrink: 0; }
-  .plan-text { font-size: 11px; color: rgba(255,255,255,.55); }
-  .plan-badge { margin-left: auto; font-size: 9px; font-weight: 700; letter-spacing: .05em; text-transform: uppercase; padding: 2px 6px; border-radius: 4px; flex-shrink: 0; }
-  .plan-badge.hot { background: rgba(255,61,181,.15); color: #ff3db5; }
-  .plan-badge.ok  { background: rgba(0,194,168,.15); color: var(--accent); }
-  .plan-badge.del { background: rgba(255,255,255,.07); color: rgba(255,255,255,.3); }
+  /* GROWTH POINTS */
+  .growth-card { background: rgba(255,255,255,.025); border: 1px solid rgba(255,255,255,.07); border-radius: 14px; padding: 12px 14px; display: flex; flex-direction: column; gap: 7px; }
+  .growth-title { font-size: 10px; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; color: var(--accent); margin-bottom: 3px; }
+  .growth-item { display: flex; align-items: center; gap: 10px; padding: 5px 8px; border-radius: 7px; background: rgba(255,255,255,.02); border: 1px solid rgba(255,255,255,.04); }
+  .growth-num { width: 18px; height: 18px; border-radius: 5px; background: rgba(0,194,168,.2); display: flex; align-items: center; justify-content: center; font-size: 10px; font-weight: 700; color: var(--accent); flex-shrink: 0; }
+  .growth-text { font-size: 11px; color: rgba(255,255,255,.55); flex: 1; }
+  .growth-badge { margin-left: auto; font-size: 9px; font-weight: 700; letter-spacing: .05em; text-transform: uppercase; padding: 2px 6px; border-radius: 4px; flex-shrink: 0; }
+  .gb-up   { background: rgba(0,194,168,.15); color: var(--accent); }
+  .gb-mid  { background: rgba(255,200,50,.1); color: #FFD166; }
+  .gb-hot  { background: rgba(255,61,181,.15); color: #ff3db5; }
 
   .right-bot { position: absolute; bottom: 66px; left: 818px; right: 36px; display: flex; justify-content: space-between; font-size: 10px; letter-spacing: .18em; text-transform: uppercase; color: rgba(255,255,255,.22); }
   .right-bot .acc { color: var(--accent); }
@@ -102,82 +107,82 @@
 
 <div class="top-nav">
   <div class="top-left"><div class="top-dot"></div>VIVI VIP · STEP 05</div>
-  <div class="top-right">05 / 05</div>
+  <div class="top-right">05 / 06</div>
 </div>
 
 <div class="bottom-nav">
-  <div class="bottom-left">S5 · PLAN</div>
+  <div class="bottom-left">S5 · STRATEGY</div>
   <div class="bottom-right">
     <span>TIER · VIP</span>
     <span>REF · VIVI/05</span>
-    <span class="acc">ДЕНЬ СПЛАНИРОВАН</span>
+    <span class="acc">СТРАТЕГИЯ ГОТОВА</span>
   </div>
 </div>
 
 <div class="divider"></div>
 
 <div class="right-labels">
-  <span>ДИРЕКТОР</span>
+  <span>СТРАТЕГ</span>
   <span>BLUEPRINT</span>
 </div>
 
 <div class="left">
-  <div class="step-label">ШАГ <span class="n">№05</span> · ПЛАНИРОВАНИЕ</div>
+  <div class="step-label">ШАГ <span class="n">№05</span> · СТРАТЕГИЯ</div>
   <div class="headline">
-    <span class="hl-w">УТРО</span>
-    <span class="hl-a">МЕНЯЕТ <span class="diamond">♦</span></span>
-    <span class="hl-w">ВСЁ</span>
+    <span class="hl-w">ДУМАЕТ</span>
+    <span class="hl-a">ЗА <span class="diamond">♦</span></span>
+    <span class="hl-w">ТЕБЯ</span>
   </div>
   <div class="desc">
-    5 минут с Директором — и ты знаешь <span class="hi">что сделать первым</span>,<br>что делегировать офису, что отложить. День начинается с плана, а не с хаоса.
+    Стратег анализирует твой контент, находит <span class="hi">точки роста</span> и строит план — ты всегда знаешь следующий шаг и куда двигаться.
   </div>
-  <div class="tech">→ Директор · Утренние сессии · Notion · 30 минут</div>
+  <div class="tech">→ Стратег · Аналитика · Рост · 30 минут</div>
 </div>
 
 <div class="right">
-  <div class="dir-card">
-    <div class="dir-head">
-      <div class="dir-head-left">
-        <div class="dir-icon">✦</div>
+  <div class="strat-card">
+    <div class="strat-head">
+      <div class="strat-head-left">
+        <div class="strat-icon">S</div>
         <div>
-          <div class="dir-name">Директор · Утренняя сессия</div>
-          <div class="dir-status">● онлайн · видит твои задачи</div>
+          <div class="strat-name">Стратег · Разбор канала</div>
+          <div class="strat-status">● анализирует · 3 точки роста</div>
         </div>
       </div>
-      <div class="dir-time">09:00</div>
+      <div class="strat-badge">ONLINE</div>
     </div>
-    <div class="dir-body">
-      <div class="chat-msg u">Доброе утро</div>
-      <div class="chat-msg d">
-        <div class="dir-sender">✦ ДИРЕКТОР</div>
-        Доброе утро. Вижу 4 задачи на сегодня. Вот твой план:
+    <div class="strat-body">
+      <div class="chat-msg u">Как улучшить охваты?</div>
+      <div class="chat-msg s">
+        <div class="strat-sender">◆ СТРАТЕГ</div>
+        Вижу: охваты упали на 3 последних постах. Нашёл 3 точки роста — вот что меняем:
       </div>
     </div>
   </div>
 
-  <div class="plan-card">
-    <div class="plan-title">План на сегодня</div>
-    <div class="plan-item">
-      <div class="plan-num">1</div>
-      <div class="plan-text">Записать голосовое для поста</div>
-      <span class="plan-badge hot">Горит</span>
+  <div class="growth-card">
+    <div class="growth-title">Точки роста · Этот месяц</div>
+    <div class="growth-item">
+      <div class="growth-num">1</div>
+      <div class="growth-text">Публиковать Reels в 17:00–19:00</div>
+      <span class="growth-badge gb-up">Охват +40%</span>
     </div>
-    <div class="plan-item">
-      <div class="plan-num">2</div>
-      <div class="plan-text">Согласовать дизайн обложки</div>
-      <span class="plan-badge ok">Важно</span>
+    <div class="growth-item">
+      <div class="growth-num">2</div>
+      <div class="growth-text">Добавить вопрос в конец каждого поста</div>
+      <span class="growth-badge gb-mid">Вовлечённость</span>
     </div>
-    <div class="plan-item">
-      <div class="plan-num">3</div>
-      <div class="plan-text">Контент-план на следующую неделю</div>
-      <span class="plan-badge del">Делегировать</span>
+    <div class="growth-item">
+      <div class="growth-num">3</div>
+      <div class="growth-text">7 постов без CTA — закрыть дыру</div>
+      <span class="growth-badge gb-hot">Конверсия</span>
     </div>
   </div>
 </div>
 
 <div class="right-bot">
-  <span>DIRECTOR · READY</span>
-  <span class="acc">MORNING SESSION · ACTIVE</span>
+  <span>STRATEGIST · READY</span>
+  <span class="acc">GROWTH · IN PROGRESS</span>
 </div>
 
 </body>
